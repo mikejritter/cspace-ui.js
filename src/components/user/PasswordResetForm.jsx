@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { defineMessages, intlShape, FormattedMessage } from 'react-intl';
+import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import get from 'lodash/get';
 import { components as inputComponents } from 'cspace-input';
@@ -91,15 +91,12 @@ const messages = defineMessages({
 });
 
 const propTypes = {
+  intl: PropTypes.object,
   token: PropTypes.string.isRequired,
   reset: PropTypes.func.isRequired,
 };
 
-const contextTypes = {
-  intl: intlShape,
-};
-
-export default class PasswordResetForm extends Component {
+class PasswordResetForm extends Component {
   constructor() {
     super();
 
@@ -205,7 +202,7 @@ export default class PasswordResetForm extends Component {
 
     const {
       intl,
-    } = this.context;
+    } = this.props;
 
     if (!error) {
       return undefined;
@@ -277,7 +274,7 @@ export default class PasswordResetForm extends Component {
 
     const {
       intl,
-    } = this.context;
+    } = this.props;
 
     const errorMessage = this.renderError();
 
@@ -326,4 +323,5 @@ export default class PasswordResetForm extends Component {
 }
 
 PasswordResetForm.propTypes = propTypes;
-PasswordResetForm.contextTypes = contextTypes;
+
+export default injectIntl(PasswordResetForm);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { defineMessages, FormattedMessage, intlShape } from 'react-intl';
+import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
 import Immutable from 'immutable';
 import get from 'lodash/get';
 import { Modal } from 'cspace-layout';
@@ -52,6 +52,7 @@ const messages = defineMessages({
 });
 
 const propTypes = {
+  intl: PropTypes.object,
   config: PropTypes.shape({
     allowDeleteHierarchyLeaves: PropTypes.bool,
     recordTypes: PropTypes.object,
@@ -71,11 +72,7 @@ const propTypes = {
   onDeleteButtonClick: PropTypes.func,
 };
 
-const contextTypes = {
-  intl: intlShape,
-};
-
-export default class ConfirmRecordDeleteModal extends Component {
+class ConfirmRecordDeleteModal extends Component {
   constructor(props) {
     super(props);
 
@@ -228,6 +225,7 @@ export default class ConfirmRecordDeleteModal extends Component {
 
   render() {
     const {
+      intl,
       config,
       data,
       isOpen,
@@ -238,10 +236,6 @@ export default class ConfirmRecordDeleteModal extends Component {
     if (!isOpen || !data) {
       return null;
     }
-
-    const {
-      intl,
-    } = this.context;
 
     const {
       hasRelations,
@@ -301,4 +295,5 @@ export default class ConfirmRecordDeleteModal extends Component {
 }
 
 ConfirmRecordDeleteModal.propTypes = propTypes;
-ConfirmRecordDeleteModal.contextTypes = contextTypes;
+
+export default injectIntl(ConfirmRecordDeleteModal);

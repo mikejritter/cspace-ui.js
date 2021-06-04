@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { defineMessages, intlShape } from 'react-intl';
+import { defineMessages, injectIntl } from 'react-intl';
 import { components as inputComponents } from 'cspace-input';
 import styles from '../../../styles/cspace-ui/AdminSearchBar.css';
 
@@ -20,15 +20,12 @@ const messages = defineMessages({
 });
 
 const propTypes = {
+  intl: PropTypes.object,
   value: PropTypes.string,
   onChange: PropTypes.func,
 };
 
-const contextTypes = {
-  intl: intlShape,
-};
-
-export default class AuthRoleSearchBar extends Component {
+class AuthRoleSearchBar extends Component {
   constructor() {
     super();
 
@@ -58,12 +55,9 @@ export default class AuthRoleSearchBar extends Component {
 
   render() {
     const {
+      intl,
       value,
     } = this.props;
-
-    const {
-      intl,
-    } = this.context;
 
     return (
       <div className={styles.common}>
@@ -86,4 +80,5 @@ export default class AuthRoleSearchBar extends Component {
 }
 
 AuthRoleSearchBar.propTypes = propTypes;
-AuthRoleSearchBar.contextTypes = contextTypes;
+
+export default injectIntl(AuthRoleSearchBar);

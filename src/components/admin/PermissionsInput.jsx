@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
-import { defineMessages, intlShape, FormattedMessage } from 'react-intl';
+import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
 import get from 'lodash/get';
 import { components as inputComponents, helpers as inputHelpers } from 'cspace-input';
 import { getRecordTypeConfigByServicePath } from '../../helpers/configHelpers';
@@ -66,6 +66,7 @@ const serviceTypeMessages = defineMessages({
 const serviceTypes = ['object', 'procedure', 'authority', 'utility', 'security'];
 
 const propTypes = {
+  intl: PropTypes.object,
   /* eslint-disable react/no-unused-prop-types */
   name: PropTypes.string,
   parentPath: pathPropType,
@@ -82,13 +83,12 @@ const propTypes = {
 };
 
 const contextTypes = {
-  intl: intlShape,
   config: PropTypes.shape({
     recordTypes: PropTypes.object,
   }),
 };
 
-export default class PermissionsInput extends Component {
+class PermissionsInput extends Component {
   constructor(props, context) {
     super(props, context);
 
@@ -364,7 +364,7 @@ export default class PermissionsInput extends Component {
   renderPermRows() {
     const {
       intl,
-    } = this.context;
+    } = this.props;
 
     const perms = this.getPermsMap() || {};
     const sections = [];
@@ -471,3 +471,5 @@ export default class PermissionsInput extends Component {
 
 PermissionsInput.propTypes = propTypes;
 PermissionsInput.contextTypes = contextTypes;
+
+export default injectIntl(PermissionsInput);
