@@ -6,7 +6,7 @@ import {
   defineMessages,
   FormattedMessage,
   FormattedDate,
-  FormattedRelative,
+  FormattedRelativeTime,
   FormattedTime,
 } from 'react-intl';
 
@@ -64,8 +64,13 @@ const formatTime = (timestamp) => (
 );
 
 const formatTimeRelative = (timestamp) => (
+  // todo: This isn't really formatting correctly, needs to be fixed
+  // maybe try
+  // import {selectUnit} from '@formatjs/intl-utils'
+  // const {value, unit} = selectUnit(Date.now() - 48 * 3600 * 1000)
+  // ;<FormattedRelativeTime value={value} unit={unit} />
   timestamp
-    ? <FormattedRelative value={timestamp} />
+    ? <FormattedRelativeTime value={new Date(timestamp)} />
     : null
 );
 
@@ -124,13 +129,17 @@ export default class RecordHistory extends Component {
 
     if (isSavePending) {
       return (
-        <FormattedMessage {...messages.saving} />
+        <span>
+          <FormattedMessage {...messages.saving} />
+        </span>
       );
     }
 
     if (isModified) {
       return (
-        <FormattedMessage {...messages.editing} />
+        <span>
+          <FormattedMessage {...messages.editing} />
+        </span>
       );
     }
 
