@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { findRenderedComponentWithType } from 'react-dom/test-utils';
 import { IntlProvider } from 'react-intl';
 import { Provider as StoreProvider } from 'react-redux';
+import TestRenderer from 'react-test-renderer';
 import configureMockStore from 'redux-mock-store';
 import createTestContainer from '../../../helpers/createTestContainer';
 import PasswordResetForm from '../../../../src/components/user/PasswordResetForm';
@@ -51,20 +52,20 @@ describe('ResetPasswordPage', () => {
     findRenderedComponentWithType(renderTree, PasswordResetRequestForm).should.not.equal(null);
   });
 
-  it('should render a PasswordResetForm if a token exists in query parameters', function test() {
+  it('should render a PasswordResetForm if a token exists in query parameters', () => {
     const location = {
       search: '?token=1234',
       state: {},
     };
 
-    const renderTree = render(
+    const renderTree = TestRenderer.create(
       <IntlProvider locale="en">
         <StoreProvider store={store}>
           <ResetPasswordPage location={location} />
         </StoreProvider>
-      </IntlProvider>, this.container,
+      </IntlProvider>,
     );
 
-    findRenderedComponentWithType(renderTree, PasswordResetForm).should.not.equal(null);
+    renderTree.root.findByType(PasswordResetForm).should.not.equal(null);
   });
 });

@@ -3,8 +3,7 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import { createRenderer } from 'react-test-renderer/shallow';
-import { findWithType } from 'react-shallow-testutils';
+import TestRenderer from 'react-test-renderer';
 import { MemoryRouter as Router } from 'react-router';
 import { IntlProvider } from 'react-intl';
 import { Provider as StoreProvider } from 'react-redux';
@@ -120,35 +119,47 @@ describe('ProtectedPage', () => {
   });
 
   it('should render a login modal', () => {
-    const shallowRenderer = createRenderer();
-
-    const result = shallowRenderer.render(
-      <ProtectedPage
-        username="user@collectionspace.org"
-        userPrefsLoaded
-      >
-        <div id="content">This is some content</div>
-      </ProtectedPage>,
+    const testRenderer = TestRenderer.create(
+      <IntlProvider locale="en">
+        <StoreProvider store={store}>
+          <ConfigProvider config={config}>
+            <Router>
+              <ProtectedPage
+                username="user@collectionspace.org"
+                userPrefsLoaded
+              >
+                <div id="content">This is some content</div>
+              </ProtectedPage>
+            </Router>
+          </ConfigProvider>
+        </StoreProvider>
+      </IntlProvider>,
     );
 
-    const loginModal = findWithType(result, LoginModal);
+    const loginModal = testRenderer.root.findByType(LoginModal);
 
     loginModal.should.not.equal(null);
   });
 
   it('should render a login modal', () => {
-    const shallowRenderer = createRenderer();
-
-    const result = shallowRenderer.render(
-      <ProtectedPage
-        username="user@collectionspace.org"
-        userPrefsLoaded
-      >
-        <div id="content">This is some content</div>
-      </ProtectedPage>,
+    const testRenderer = TestRenderer.create(
+      <IntlProvider locale="en">
+        <StoreProvider store={store}>
+          <ConfigProvider config={config}>
+            <Router>
+              <ProtectedPage
+                username="user@collectionspace.org"
+                userPrefsLoaded
+              >
+                <div id="content">This is some content</div>
+              </ProtectedPage>
+            </Router>
+          </ConfigProvider>
+        </StoreProvider>
+      </IntlProvider>,
     );
 
-    const loginModal = findWithType(result, LoginModal);
+    const loginModal = testRenderer.root.findByType(LoginModal);
 
     loginModal.should.not.equal(null);
   });
@@ -166,21 +177,26 @@ describe('ProtectedPage', () => {
       resetLoginCalled = true;
     };
 
-    const shallowRenderer = createRenderer();
-
-    const result = shallowRenderer.render(
-      <ProtectedPage
-        closeModal={closeModal}
-        resetLogin={resetLogin}
-        username="user@collectionspace.org"
-        userPrefsLoaded
-      >
-        <div id="content">This is some content</div>
-      </ProtectedPage>,
+    const testRenderer = TestRenderer.create(
+      <IntlProvider locale="en">
+        <StoreProvider store={store}>
+          <ConfigProvider config={config}>
+            <Router>
+              <ProtectedPage
+                closeModal={closeModal}
+                resetLogin={resetLogin}
+                username="user@collectionspace.org"
+                userPrefsLoaded
+              >
+                <div id="content">This is some content</div>
+              </ProtectedPage>
+            </Router>
+          </ConfigProvider>
+        </StoreProvider>
+      </IntlProvider>,
     );
 
-    const loginModal = findWithType(result, LoginModal);
-
+    const loginModal = testRenderer.root.findByType(LoginModal);
     loginModal.props.onSuccess();
 
     return new Promise((resolve) => {

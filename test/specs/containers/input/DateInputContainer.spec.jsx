@@ -1,5 +1,6 @@
 import React from 'react';
-import { createRenderer } from 'react-test-renderer/shallow';
+import TestRenderer from 'react-test-renderer';
+import { IntlProvider } from 'react-intl';
 import { components as inputComponents } from 'cspace-input';
 import { IntlAwareDateInput } from '../../../../src/containers/input/DateInputContainer';
 
@@ -7,29 +8,18 @@ chai.should();
 
 const { DateInput } = inputComponents;
 
-const intl = {
-  formatDate: () => null,
-  formatTime: () => null,
-  formatRelative: () => null,
-  formatNumber: () => null,
-  formatPlural: () => null,
-  formatMessage: (message) => `formatted ${message.id}`,
-  formatHTMLMessage: () => null,
-  locale: 'locale',
-  now: () => null,
-};
-
 describe('DateInputContainer', () => {
   it('should set DateInput locale from intl', () => {
-    const shallowRenderer = createRenderer();
-
-    shallowRenderer.render(
-      <IntlAwareDateInput intl={intl} />,
+    const testRenderer = TestRenderer.create(
+      <IntlProvider locale="en">
+        <IntlAwareDateInput />
+      </IntlProvider>,
     );
 
-    const result = shallowRenderer.getRenderOutput();
+    const testInstance = testRenderer.root;
+    const result = testInstance.findByType(DateInput);
 
     result.type.should.equal(DateInput);
-    result.props.locale.should.equal(intl.locale);
+    result.props.locale.should.equal('en');
   });
 });
