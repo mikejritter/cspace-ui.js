@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
-  defineMessages, injectIntl, intlShape, FormattedMessage,
+  defineMessages, injectIntl, FormattedMessage,
 } from 'react-intl';
 import { Link } from 'react-router-dom';
 import Immutable from 'immutable';
@@ -83,7 +83,7 @@ const contextTypes = {
 
 const propTypes = {
   formId: PropTypes.string,
-  intl: intlShape.isRequired,
+  intl: PropTypes.object.isRequired,
   isExpired: PropTypes.bool,
   isPending: PropTypes.bool,
   isSuccess: PropTypes.bool,

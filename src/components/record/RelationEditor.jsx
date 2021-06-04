@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
-import { defineMessages, intlShape, FormattedMessage } from 'react-intl';
+import { defineMessages, FormattedMessage } from 'react-intl';
 import get from 'lodash/get';
 import isEqual from 'lodash/isEqual';
 import RelationButtonBar from './RelationButtonBar';
@@ -71,7 +71,7 @@ const propTypes = {
 };
 
 const contextTypes = {
-  intl: intlShape,
+  intl: PropTypes.object,
 };
 
 export default class RelationEditor extends Component {

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { defineMessages, intlShape } from 'react-intl';
+import { defineMessages } from 'react-intl';
 import Immutable from 'immutable';
 import { components as inputComponents } from 'cspace-input';
 import { getSearchableRecordTypes } from '../../helpers/searchHelpers';
@@ -21,7 +21,7 @@ const messages = defineMessages({
 });
 
 const propTypes = {
-  intl: intlShape,
+  intl: PropTypes.object,
   config: PropTypes.shape({
     recordTypes: PropTypes.object,
   }),

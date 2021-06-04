@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { defineMessages, injectIntl, intlShape } from 'react-intl';
+import { defineMessages, injectIntl } from 'react-intl';
 import { baseComponents as inputComponents, enhancers as inputEnhancers } from 'cspace-input';
 import Immutable from 'immutable';
 
@@ -79,7 +79,7 @@ const propTypes = {
   config: PropTypes.shape({
     structDateVocabNames: PropTypes.arrayOf(PropTypes.string),
   }),
-  intl: intlShape,
+  intl: PropTypes.object,
   perms: PropTypes.instanceOf(Immutable.Map),
   readTerms: PropTypes.func,
 };

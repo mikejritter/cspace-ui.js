@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { defineMessages, intlShape, FormattedMessage } from 'react-intl';
+import { defineMessages, FormattedMessage } from 'react-intl';
 import Immutable from 'immutable';
 import { components as inputComponents } from 'cspace-input';
 import { Panel } from 'cspace-layout';
@@ -52,7 +52,7 @@ const propTypes = {
     messages: PropTypes.object,
   }),
   dockTop: PropTypes.number,
-  intl: intlShape,
+  intl: PropTypes.object,
   keywordValue: PropTypes.string,
   recordTypeValue: PropTypes.string,
   vocabularyValue: PropTypes.string,

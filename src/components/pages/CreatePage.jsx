@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { defineMessages, intlShape, FormattedMessage } from 'react-intl';
+import { defineMessages, FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
 import Immutable from 'immutable';
 import TitleBar from '../sections/TitleBar';
@@ -142,7 +142,7 @@ const contextTypes = {
 };
 
 const propTypes = {
-  intl: intlShape,
+  intl: PropTypes.object,
   perms: PropTypes.instanceOf(Immutable.Map),
   getAuthorityVocabWorkflowState: PropTypes.func,
 };

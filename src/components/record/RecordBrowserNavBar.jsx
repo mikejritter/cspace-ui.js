@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { defineMessages, injectIntl, intlShape } from 'react-intl';
+import { defineMessages, injectIntl } from 'react-intl';
 import { components as inputComponents } from 'cspace-input';
 import Immutable from 'immutable';
 import get from 'lodash/get';
@@ -58,7 +58,7 @@ const propTypes = {
   csid: PropTypes.string,
   recordType: PropTypes.string,
   relatedRecordType: PropTypes.string,
-  intl: intlShape,
+  intl: PropTypes.object,
   items: PropTypes.instanceOf(Immutable.List),
   perms: PropTypes.instanceOf(Immutable.Map),
   setItems: PropTypes.func,

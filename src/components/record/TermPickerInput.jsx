@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { defineMessages, injectIntl, intlShape } from 'react-intl';
+import { defineMessages, injectIntl } from 'react-intl';
 import Immutable from 'immutable';
 import warning from 'warning';
 import { baseComponents as inputComponents, enhancers as inputEnhancers } from 'cspace-input';
@@ -31,7 +31,7 @@ const propTypes = {
   config: PropTypes.shape({
     defaultDropdownFilter: PropTypes.string,
   }),
-  intl: intlShape,
+  intl: PropTypes.object,
   name: PropTypes.string,
   perms: PropTypes.instanceOf(Immutable.Map),
   readTerms: PropTypes.func,

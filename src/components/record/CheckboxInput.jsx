@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { defineMessages, injectIntl, intlShape } from 'react-intl';
+import { defineMessages, injectIntl } from 'react-intl';
 import { baseComponents as inputComponents, enhancers as inputEnhancers } from 'cspace-input';
 
 const {
@@ -30,7 +30,7 @@ const messages = defineMessages({
 const propTypes = {
   // eslint-disable-next-line react/forbid-foreign-prop-types
   ...BaseCheckboxInput.propTypes,
-  intl: intlShape,
+  intl: PropTypes.object,
   viewType: PropTypes.string,
   trueLabel: PropTypes.string,
   falseLabel: PropTypes.string,

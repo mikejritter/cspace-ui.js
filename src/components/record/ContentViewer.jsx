@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
-import { defineMessages, intlShape } from 'react-intl';
+import { defineMessages } from 'react-intl';
 import get from 'lodash/get';
 import warning from 'warning';
 import ImageContainer from '../../containers/media/ImageContainer';
@@ -31,7 +31,7 @@ const contextTypes = {
   recordType: PropTypes.string,
   vocabulary: PropTypes.string,
   csid: PropTypes.string,
-  intl: intlShape,
+  intl: PropTypes.object,
   recordData: PropTypes.instanceOf(Immutable.Map),
 };
 
