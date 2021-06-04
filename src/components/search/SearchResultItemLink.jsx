@@ -68,7 +68,9 @@ export default function SearchResultItemLink(props) {
 
   return (
     <Link rel={rel} to={location}>
-      <FormattedMessage {...message} values={{ recordNumber }} />
+      <span>
+        <FormattedMessage {...message} values={{ recordNumber }} />
+      </span>
     </Link>
   );
 }

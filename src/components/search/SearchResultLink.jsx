@@ -115,7 +115,9 @@ export default class SearchResultLink extends Component {
 
     if (isSearchPending) {
       return (
-        <FormattedMessage {...messages.pending} />
+        <span>
+          <FormattedMessage {...messages.pending} />
+        </span>
       );
     }
 
@@ -133,13 +135,17 @@ export default class SearchResultLink extends Component {
       }
 
       return (
-        <FormattedMessage {...messages.notFound} />
+        <span>
+          <FormattedMessage {...messages.notFound} />
+        </span>
       );
     }
 
     if (searchError) {
       return (
-        <FormattedMessage {...messages.error} />
+        <span>
+          <FormattedMessage {...messages.error} />
+        </span>
       );
     }
 

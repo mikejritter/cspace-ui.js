@@ -56,7 +56,9 @@ const defaultProps = {
 
     return (
       <Link to={path} onClick={onEditSearchLinkClick}>
-        <FormattedMessage {...messages.editSearch} />
+        <span>
+          <FormattedMessage {...messages.editSearch} />
+        </span>
       </Link>
     );
   },
@@ -92,7 +94,9 @@ export default function SearchResultSummary(props) {
 
     return (
       <div className={styles.error}>
-        <FormattedMessage {...message} values={error} />
+        <span>
+          <FormattedMessage {...message} values={error} />
+        </span>
         <p>{renderEditLink(searchDescriptor, onEditSearchLinkClick)}</p>
       </div>
     );
@@ -113,7 +117,9 @@ export default function SearchResultSummary(props) {
       isSearching = true;
 
       message = (
-        <FormattedMessage {...listTypeConfig.messages.searching} />
+        <span>
+          <FormattedMessage {...listTypeConfig.messages.searching} />
+        </span>
       );
     } else {
       const pageNum = parseInt(list.get('pageNum'), 10);
@@ -124,14 +130,16 @@ export default function SearchResultSummary(props) {
       const endNum = Math.min((pageNum * pageSize) + pageSize, totalItems);
 
       message = (
-        <FormattedMessage
-          {...listTypeConfig.messages.resultCount}
-          values={{
-            totalItems,
-            startNum,
-            endNum,
-          }}
-        />
+        <span>
+          <FormattedMessage
+            {...listTypeConfig.messages.resultCount}
+            values={{
+              totalItems,
+              startNum,
+              endNum,
+            }}
+          />
+        </span>
       );
     }
   }

@@ -202,12 +202,20 @@ export default class SearchResultTraverser extends Component {
     if (currentNum > 1) {
       // We don't have data for the previous page, but there is one. Show a placeholder link.
 
-      return <FormattedMessage {...messages.prev} />;
+      return (
+        <span>
+          <FormattedMessage {...messages.prev} />
+        </span>
+      );
     }
 
     // We're on the first item of all pages. Show a placeholder link.
 
-    return <FormattedMessage {...messages.prev} />;
+    return (
+      <span>
+        <FormattedMessage {...messages.prev} />
+      </span>
+    );
   }
 
   renderNextLink(items, index, currentNum, totalItems, locationState) {
@@ -263,12 +271,20 @@ export default class SearchResultTraverser extends Component {
     if (currentNum < totalItems) {
       // We don't have data for the next page, but there is one. Show a placeholder link.
 
-      return <FormattedMessage {...messages.next} />;
+      return (
+        <span>
+          <FormattedMessage {...messages.next} />
+        </span>
+      );
     }
 
     // We're on the last item of all pages. Show a placeholder link.
 
-    return <FormattedMessage {...messages.next} />;
+    return (
+      <span>
+        <FormattedMessage {...messages.next} />
+      </span>
+    );
   }
 
   render() {
@@ -294,7 +310,11 @@ export default class SearchResultTraverser extends Component {
       || searchState.get('isPending')
       || searchState.get('error')
     ) {
-      resultMessage = <FormattedMessage {...messages.resultPending} />;
+      resultMessage = (
+        <span>
+          <FormattedMessage {...messages.resultPending} />
+        </span>
+      );
     } else {
       const listType = getListType(config, searchDescriptor);
       const listTypeConfig = config.listTypes[listType];
@@ -314,10 +334,12 @@ export default class SearchResultTraverser extends Component {
       const currentNum = (pageNum * pageSize) + index + 1;
 
       resultMessage = (
-        <FormattedMessage
-          {...messages.result}
-          values={{ current: currentNum, total: totalItems }}
-        />
+        <span>
+          <FormattedMessage
+            {...messages.result}
+            values={{ current: currentNum, total: totalItems }}
+          />
+        </span>
       );
 
       let items = result.getIn([listNodeName, itemNodeName]);
