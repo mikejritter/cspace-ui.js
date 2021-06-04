@@ -1,33 +1,23 @@
 import React from 'react';
-import { injectIntl, intlShape } from 'react-intl';
+import { useIntl } from 'react-intl';
 import { components as inputComponents } from 'cspace-input';
 
 const { DateInput } = inputComponents;
 
-const propTypes = {
-  intl: intlShape,
-};
-
 export function IntlAwareDateInput(props) {
-  const {
-    intl,
-    ...remainingProps
-  } = props;
-
+  const intl = useIntl();
   const { locale } = intl;
 
   return (
     <DateInput
       // eslint-disable-next-line react/jsx-props-no-spreading
-      {...remainingProps}
+      {...props}
       locale={locale}
     />
   );
 }
 
-IntlAwareDateInput.propTypes = propTypes;
-
-const IntlizedDateInput = injectIntl(IntlAwareDateInput);
+const IntlizedDateInput = IntlAwareDateInput;
 
 IntlizedDateInput.propTypes = DateInput.propTypes;
 

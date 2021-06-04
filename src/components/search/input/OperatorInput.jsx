@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  defineMessages, injectIntl, intlShape, FormattedMessage,
+  defineMessages, useIntl, FormattedMessage,
 } from 'react-intl';
 import { baseComponents as inputComponents } from 'cspace-input';
 
@@ -183,7 +183,6 @@ const operatorMessages = {
 
 const propTypes = {
   compact: PropTypes.bool,
-  intl: intlShape,
   name: PropTypes.string,
   operators: PropTypes.arrayOf(PropTypes.string),
   readOnly: PropTypes.bool,
@@ -194,7 +193,6 @@ const propTypes = {
 function OperatorInput(props) {
   const {
     compact,
-    intl,
     name,
     operators,
     readOnly,
@@ -202,6 +200,7 @@ function OperatorInput(props) {
     onCommit,
   } = props;
 
+  const intl = useIntl();
   const messages = compact ? operatorMessages.compact : operatorMessages.full;
 
   if (readOnly) {
@@ -227,4 +226,4 @@ function OperatorInput(props) {
 
 OperatorInput.propTypes = propTypes;
 
-export default injectIntl(OperatorInput);
+export default OperatorInput;

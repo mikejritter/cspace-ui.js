@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch } from 'react-router';
-import { defineMessages, injectIntl, intlShape } from 'react-intl';
+import { defineMessages, useIntl } from 'react-intl';
 import { Helmet } from 'react-helmet';
 import classNames from 'classnames';
 import ProtectedRouteContainer from '../../containers/routes/ProtectedRouteContainer';
@@ -34,15 +34,14 @@ const messages = defineMessages({
 
 const propTypes = {
   className: PropTypes.string,
-  intl: intlShape,
 };
 
 function RootPage(props) {
   const {
     className,
-    intl,
   } = props;
 
+  const intl = useIntl();
   const classes = classNames(styles.common, className);
   const title = intl.formatMessage(messages.title);
 
@@ -67,7 +66,7 @@ function RootPage(props) {
         <PublicRoute path="/resetpw" component={ResetPasswordPage} />
 
         <ProtectedRouteContainer path="/dashboard" component={DashboardPage} />
-        <ProtectedRouteContainer path="/create" component={injectIntl(CreatePageContainer)} />
+        <ProtectedRouteContainer path="/create" component={CreatePageContainer} />
         <ProtectedRouteContainer path="/tool" component={ToolPageContainer} />
         <ProtectedRouteContainer path="/admin" component={AdminPageContainer} />
 
@@ -122,4 +121,4 @@ function RootPage(props) {
 
 RootPage.propTypes = propTypes;
 
-export default injectIntl(RootPage);
+export default RootPage;

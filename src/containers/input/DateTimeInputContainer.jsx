@@ -1,5 +1,5 @@
 import React from 'react';
-import { defineMessages, injectIntl, intlShape } from 'react-intl';
+import { defineMessages, useIntl } from 'react-intl';
 import { components as inputComponents } from 'cspace-input';
 
 const { DateTimeInput } = inputComponents;
@@ -12,20 +12,13 @@ const messages = defineMessages({
   },
 });
 
-const propTypes = {
-  intl: intlShape,
-};
-
 export function IntlAwareDateTimeInput(props) {
-  const {
-    intl,
-    ...remainingProps
-  } = props;
+  const intl = useIntl();
 
   return (
     <DateTimeInput
       // eslint-disable-next-line react/jsx-props-no-spreading
-      {...remainingProps}
+      {...props}
       formatValue={(timestamp) => {
         const date = intl.formatDate(timestamp, { day: 'numeric', month: 'short', year: 'numeric' });
         const time = intl.formatTime(timestamp, { hour: 'numeric', minute: 'numeric', second: 'numeric' });
@@ -36,9 +29,7 @@ export function IntlAwareDateTimeInput(props) {
   );
 }
 
-IntlAwareDateTimeInput.propTypes = propTypes;
-
-const IntlizedDateTimeInput = injectIntl(IntlAwareDateTimeInput);
+const IntlizedDateTimeInput = IntlAwareDateTimeInput;
 
 IntlizedDateTimeInput.propTypes = DateTimeInput.propTypes;
 

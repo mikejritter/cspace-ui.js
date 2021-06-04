@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { defineMessages, FormattedMessage, intlShape } from 'react-intl';
+import { defineMessages, FormattedMessage, useIntl } from 'react-intl';
 import Immutable from 'immutable';
 import { findVocabularyUses } from '../../helpers/configHelpers';
 import { formatExtensionFieldName } from '../../helpers/formatHelpers';
@@ -72,24 +72,17 @@ const propTypes = {
   data: PropTypes.instanceOf(Immutable.Map),
 };
 
-const contextTypes = {
-  intl: intlShape,
-};
-
-export default function VocabularyUsedByPanel(props, context) {
+export default function VocabularyUsedByPanel(props) {
   const {
     config,
     data,
   } = props;
 
-  const {
-    intl,
-  } = context;
-
   if (!data) {
     return null;
   }
 
+  const intl = useIntl();
   const shortId = data.getIn(['document', 'ns2:vocabularies_common', 'shortIdentifier']);
   const uses = findVocabularyUses(config, shortId);
   const title = <h3><FormattedMessage {...messages.title} /></h3>;
@@ -110,4 +103,3 @@ export default function VocabularyUsedByPanel(props, context) {
 }
 
 VocabularyUsedByPanel.propTypes = propTypes;
-VocabularyUsedByPanel.contextTypes = contextTypes;

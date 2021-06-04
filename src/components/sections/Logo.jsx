@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { defineMessages, injectIntl, intlShape } from 'react-intl';
+import { defineMessages, useIntl } from 'react-intl';
 import styles from '../../../styles/cspace-ui/Logo.css';
 
 const messages = defineMessages({
@@ -16,15 +16,14 @@ const propTypes = {
   config: PropTypes.shape({
     logo: PropTypes.string,
   }),
-  intl: intlShape,
 };
 
 function Logo(props) {
   const {
     config,
-    intl,
   } = props;
 
+  const intl = useIntl();
   const title = intl.formatMessage(messages.title);
 
   return (
@@ -38,4 +37,4 @@ function Logo(props) {
 
 Logo.propTypes = propTypes;
 
-export default injectIntl(Logo);
+export default Logo;

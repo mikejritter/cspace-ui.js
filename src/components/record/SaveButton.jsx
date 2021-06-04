@@ -4,8 +4,7 @@ import Immutable from 'immutable';
 
 import {
   defineMessages,
-  injectIntl,
-  intlShape,
+  useIntl,
   FormattedMessage,
 } from 'react-intl';
 
@@ -32,7 +31,6 @@ const messages = defineMessages({
 
 const propTypes = {
   className: PropTypes.string,
-  intl: intlShape,
   isModified: PropTypes.bool,
   isSavePending: PropTypes.bool,
   label: PropTypes.node,
@@ -45,7 +43,6 @@ const propTypes = {
 function SaveButton(props) {
   const {
     className,
-    intl,
     isModified,
     isSavePending,
     readOnly,
@@ -53,6 +50,8 @@ function SaveButton(props) {
     onClick,
     onErrorBadgeClick,
   } = props;
+
+  const intl = useIntl();
 
   if (readOnly) {
     return null;
@@ -115,4 +114,4 @@ function SaveButton(props) {
 
 SaveButton.propTypes = propTypes;
 
-export default injectIntl(SaveButton);
+export default SaveButton;

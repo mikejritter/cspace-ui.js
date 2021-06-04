@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { injectIntl, intlShape } from 'react-intl';
+import { useIntl } from 'react-intl';
 import Immutable from 'immutable';
 import QuickSearchFormContainer from '../../containers/search/QuickSearchFormContainer';
 import NavBar from '../navigation/NavBar';
@@ -16,7 +16,6 @@ const propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
   }),
-  intl: intlShape,
   // eslint-disable-next-line react/forbid-prop-types
   config: PropTypes.object,
   perms: PropTypes.instanceOf(Immutable.Map),
@@ -26,7 +25,6 @@ const propTypes = {
 function Header(props) {
   const {
     history,
-    intl,
     config,
     perms,
     screenName,
@@ -34,6 +32,7 @@ function Header(props) {
   } = props;
 
   let quickSearch;
+  const intl = useIntl();
 
   if (userPrefsLoaded) {
     // Wait for user prefs to load, so that the record type selector will reflect the user's
@@ -69,4 +68,4 @@ function Header(props) {
 
 Header.propTypes = propTypes;
 
-export default injectIntl(withConfig(Header));
+export default withConfig(Header);

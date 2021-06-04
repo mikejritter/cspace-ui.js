@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { defineMessages, injectIntl, intlShape } from 'react-intl';
+import { defineMessages, useIntl } from 'react-intl';
 import deprecatedIcon from '../../../images/deprecated.svg';
 import lockedIcon from '../../../images/locked.svg';
 import replicatedIcon from '../../../images/replicated.svg';
@@ -28,16 +28,15 @@ const images = {
 };
 
 const propTypes = {
-  intl: intlShape,
   value: PropTypes.string,
 };
 
 function WorkflowStateIcon(props) {
   const {
-    intl,
     value,
   } = props;
 
+  const intl = useIntl();
   if (!value) {
     return null;
   }
@@ -67,4 +66,4 @@ function WorkflowStateIcon(props) {
 
 WorkflowStateIcon.propTypes = propTypes;
 
-export default injectIntl(WorkflowStateIcon);
+export default WorkflowStateIcon;

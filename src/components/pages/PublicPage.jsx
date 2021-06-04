@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { intlShape } from 'react-intl';
+import { useIntl } from 'react-intl';
 import FooterContainer from '../../containers/sections/FooterContainer';
 import Logo from '../sections/Logo';
 import styles from '../../../styles/cspace-ui/PublicPage.css';
@@ -15,7 +15,6 @@ const contextTypes = {
     pluginInfo: PropTypes.object,
     serverUrl: PropTypes.string,
   }),
-  intl: intlShape,
 };
 
 export default function PublicPage(props, context) {
@@ -25,8 +24,9 @@ export default function PublicPage(props, context) {
 
   const {
     config,
-    intl,
   } = context;
+
+  const intl = useIntl();
 
   return (
     <div className={styles.common}>
