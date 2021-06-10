@@ -14,7 +14,7 @@ chai.should();
 
 const mockStore = configureMockStore([thunk]);
 
-describe.only('SearchResultTableContainer', () => {
+describe('SearchResultTableContainer', () => {
   const searchName = 'testSearch';
   const searchDescriptor = Immutable.Map();
   const searchResult = {};
