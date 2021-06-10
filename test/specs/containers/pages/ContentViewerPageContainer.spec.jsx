@@ -10,6 +10,7 @@ import ContentViewerPageContainer from '../../../../src/containers/pages/Content
 import {
   configureCSpace,
 } from '../../../../src/actions/cspace';
+import { findWithType } from 'react-shallow-testutils';
 
 chai.should();
 
@@ -37,12 +38,13 @@ describe('ContentViewerPageContainer', () => {
 
     const shallowRenderer = createRenderer();
 
-    shallowRenderer.render(<ContentViewerPageContainer />, context);
+    shallowRenderer.render(<ContentViewerPageContainer store={store} />, context);
 
     const result = shallowRenderer.getRenderOutput();
+    const page = findWithType(result, ContentViewerPage);
 
-    result.type.should.equal(ContentViewerPage);
-    result.props.should.have.property('readContent').that.is.a('function');
+    page.should.not.be.null;
+    page.props.should.have.property('readContent').that.is.a('function');
   });
 
   it('should connect readContent to an action that fetches the content as a blob', () => {
@@ -55,9 +57,11 @@ describe('ContentViewerPageContainer', () => {
 
     const shallowRenderer = createRenderer();
 
-    shallowRenderer.render(<ContentViewerPageContainer />, context);
+    shallowRenderer.render(<ContentViewerPageContainer store={store} />, context);
 
     const result = shallowRenderer.getRenderOutput();
+    const page = findWithType(result, ContentViewerPage);
+
     const contentPath = 'blobs/1fd5e035-b5dc-4a3b-aafb/content';
 
     const match = {
@@ -66,7 +70,7 @@ describe('ContentViewerPageContainer', () => {
       },
     };
 
-    return result.props.readContent(undefined, match)
+    return page.props.readContent(undefined, match)
       .then(() => {
         const request = moxios.requests.mostRecent();
 
