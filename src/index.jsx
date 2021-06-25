@@ -4,8 +4,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { applyMiddleware, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
-import { addLocaleData, IntlProvider } from 'react-intl';
-import en from 'react-intl/locale-data/en';
+import { createIntl } from 'react-intl';
 import warning from 'warning';
 import { Modal } from 'cspace-layout';
 import logoUrl from '../images/collectionspace.svg';
@@ -76,14 +75,10 @@ export default (uiConfig) => {
     warning(mountNode !== document.body,
       `The container element for the CollectionSpace UI found using the selector '${container}' is the document body. This may cause problems, and is not supported.`);
 
-    addLocaleData([...en]);
-
-    const intlProvider = new IntlProvider({
+    const intl = createIntl({
       locale: config.locale,
       messages: config.messages,
     });
-
-    const { intl } = intlProvider.getChildContext();
 
     // eslint-disable-next-line no-underscore-dangle
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
