@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { defineMessages, FormattedMessage } from 'react-intl';
+import { defineMessages, FormattedMessage, useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import Immutable from 'immutable';
 import TitleBar from '../sections/TitleBar';
@@ -142,7 +142,6 @@ const contextTypes = {
 };
 
 const propTypes = {
-  intl: PropTypes.object,
   perms: PropTypes.instanceOf(Immutable.Map),
   getAuthorityVocabWorkflowState: PropTypes.func,
 };
@@ -153,7 +152,6 @@ const defaultProps = {
 
 export default function CreatePage(props, context) {
   const {
-    intl,
     perms,
     getAuthorityVocabWorkflowState,
   } = props;
@@ -166,6 +164,7 @@ export default function CreatePage(props, context) {
     recordTypes,
   } = config;
 
+  const intl = useIntl();
   const itemsByServiceType = {};
   const lists = [];
 
