@@ -4,7 +4,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
-import { defineMessages, FormattedMessage } from 'react-intl';
+import { defineMessages, FormattedMessage, useIntl } from 'react-intl';
 import styles from '../../../styles/cspace-ui/Footer.css';
 
 const messages = defineMessages({
@@ -98,10 +98,10 @@ const renderPluginInfo = (config, intl) => {
 export default function Footer(props) {
   const {
     config,
-    intl,
     systemInfo,
   } = props;
 
+  const intl = useIntl();
   const thisYear = (new Date()).getFullYear().toString();
 
   let statusItem;
