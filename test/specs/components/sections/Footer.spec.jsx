@@ -7,18 +7,7 @@ import Footer from '../../../../src/components/sections/Footer';
 
 chai.should();
 
-const intl = {
-  formatDate: () => null,
-  formatTime: () => null,
-  formatRelative: () => null,
-  formatNumber: () => null,
-  formatPlural: () => null,
-  formatMessage: (message) => `formatted ${message.id}`,
-  formatHTMLMessage: () => null,
-  now: () => null,
-};
-
-describe('Footer', () => {
+describe.only('Footer', () => {
   beforeEach(function before() {
     this.container = createTestContainer(this);
   });
@@ -28,7 +17,7 @@ describe('Footer', () => {
 
     render(
       <IntlProvider locale="en">
-        <Footer config={config} intl={intl} />
+        <Footer config={config} />
       </IntlProvider>, this.container,
     );
 
@@ -49,7 +38,7 @@ describe('Footer', () => {
 
     render(
       <IntlProvider locale="en">
-        <Footer config={{}} intl={intl} systemInfo={systemInfo} />
+        <Footer config={{}} systemInfo={systemInfo} />
       </IntlProvider>, this.container,
     );
 
@@ -66,7 +55,7 @@ describe('Footer', () => {
 
     render(
       <IntlProvider locale="en">
-        <Footer config={{}} intl={intl} systemInfo={systemInfo} />
+        <Footer config={{}} systemInfo={systemInfo} />
       </IntlProvider>, this.container,
     );
 
@@ -86,7 +75,7 @@ describe('Footer', () => {
 
     render(
       <IntlProvider locale="en">
-        <Footer config={{}} intl={intl} systemInfo={systemInfo} />
+        <Footer config={{}} systemInfo={systemInfo} />
       </IntlProvider>, this.container,
     );
 
@@ -103,7 +92,7 @@ describe('Footer', () => {
           messages: {
             name: {
               id: 'somePlugin.name',
-              defaultMessage: 'Some plugin',
+              defaultMessage: 'formatted somePlugin.name',
             },
           },
           version: '1.2.3',
@@ -113,7 +102,7 @@ describe('Footer', () => {
 
     render(
       <IntlProvider locale="en">
-        <Footer config={config} intl={intl} />
+        <Footer config={config} />
       </IntlProvider>, this.container,
     );
 

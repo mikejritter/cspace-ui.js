@@ -49,7 +49,6 @@ const propTypes = {
     pluginInfo: PropTypes.object,
     serverUrl: PropTypes.string,
   }),
-  intl: PropTypes.object.isRequired,
   systemInfo: PropTypes.instanceOf(Immutable.Map),
 };
 
