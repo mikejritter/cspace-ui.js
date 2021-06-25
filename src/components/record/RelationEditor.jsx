@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
-import { defineMessages, FormattedMessage } from 'react-intl';
+import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
 import get from 'lodash/get';
 import isEqual from 'lodash/isEqual';
 import RelationButtonBar from './RelationButtonBar';
@@ -35,6 +35,7 @@ const messages = defineMessages({
 });
 
 const propTypes = {
+  intl: PropTypes.object,
   cloneCsid: PropTypes.string,
   config: PropTypes.shape({
     recordTypes: PropTypes.object,
@@ -70,11 +71,7 @@ const propTypes = {
   onUnrelated: PropTypes.func,
 };
 
-const contextTypes = {
-  intl: PropTypes.object,
-};
-
-export default class RelationEditor extends Component {
+export class RelationEditor extends Component {
   constructor() {
     super();
 
@@ -260,6 +257,7 @@ export default class RelationEditor extends Component {
 
   renderHeader() {
     const {
+      intl,
       config,
       perms,
       subject,
@@ -267,10 +265,6 @@ export default class RelationEditor extends Component {
       object,
       objectData,
     } = this.props;
-
-    const {
-      intl,
-    } = this.context;
 
     const recordTypeConfig = config.recordTypes[object.recordType];
     const recordTitle = recordTypeConfig.title(objectData, { config, intl });
@@ -407,4 +401,5 @@ export default class RelationEditor extends Component {
 }
 
 RelationEditor.propTypes = propTypes;
-RelationEditor.contextTypes = contextTypes;
+
+export default injectIntl(RelationEditor);

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import Immutable from 'immutable';
 import get from 'lodash/get';
 import warning from 'warning';
@@ -91,7 +91,6 @@ const contextTypes = {
     recordTypes: PropTypes.object,
   }),
   formName: PropTypes.string,
-  intl: PropTypes.object,
   recordData: PropTypes.instanceOf(Immutable.Map),
   recordType: PropTypes.string,
   recordTypeConfig: PropTypes.shape({
@@ -105,7 +104,6 @@ export default function Field(props, context) {
   const {
     config,
     formName,
-    intl,
     recordData,
     recordType,
     roleNames,
@@ -118,6 +116,7 @@ export default function Field(props, context) {
     viewType,
   } = props;
 
+  const intl = useIntl();
   const recordTypeConfig = contextRecordTypeConfig || get(config, ['recordTypes', recordType]);
   const fullPath = getPath(props);
 

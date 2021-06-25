@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Immutable from 'immutable';
 import get from 'lodash/get';
 import qs from 'qs';
+import { injectIntl } from 'react-intl';
 import RelatedRecordButtonBar from './RelatedRecordButtonBar';
 import RelatedRecordPanelContainer from '../../containers/record/RelatedRecordPanelContainer';
 import RelationEditorContainer from '../../containers/record/RelationEditorContainer';
@@ -11,6 +12,7 @@ import { canCreate, canRelate } from '../../helpers/permissionHelpers';
 import styles from '../../../styles/cspace-ui/RelatedRecordBrowser.css';
 
 const propTypes = {
+  intl: PropTypes.object,
   cloneCsid: PropTypes.string,
   config: PropTypes.shape({
     recordTypes: PropTypes.object,
@@ -40,11 +42,7 @@ const defaultProps = {
   isSidebarOpen: true,
 };
 
-const contextTypes = {
-  intl: PropTypes.object,
-};
-
-export default class RelatedRecordBrowser extends Component {
+export class RelatedRecordBrowser extends Component {
   constructor() {
     super();
 
@@ -333,16 +331,13 @@ export default class RelatedRecordBrowser extends Component {
 
   renderSearchToRelateModal() {
     const {
+      intl,
       config,
       recordType,
       csid,
       relatedRecordType,
       primaryRecordData,
     } = this.props;
-
-    const {
-      intl,
-    } = this.context;
 
     const {
       isSearchToRelateModalOpen,
@@ -421,4 +416,5 @@ export default class RelatedRecordBrowser extends Component {
 
 RelatedRecordBrowser.propTypes = propTypes;
 RelatedRecordBrowser.defaultProps = defaultProps;
-RelatedRecordBrowser.contextTypes = contextTypes;
+
+export default injectIntl(RelatedRecordBrowser);

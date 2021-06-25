@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import get from 'lodash/get';
 
 import {
@@ -60,7 +60,6 @@ const contextTypes = {
   config: PropTypes.shape({
     recordTypes: PropTypes.object,
   }),
-  intl: PropTypes.object,
   recordType: PropTypes.string,
 };
 
@@ -72,10 +71,10 @@ export default function InputTable(props, context) {
 
   const {
     config,
-    intl,
     recordType,
   } = context;
 
+  const intl = useIntl();
   const recordTypeConfig = get(config, ['recordTypes', recordType]);
   const fields = get(recordTypeConfig, 'fields');
 

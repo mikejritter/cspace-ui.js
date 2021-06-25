@@ -25,12 +25,6 @@ const propTypes = {
   onChange: PropTypes.func,
 };
 
-/*
-const contextTypes = {
-  intl: PropTypes.object,
-};
-*/
-
 class AccountSearchBar extends Component {
   constructor() {
     super();
@@ -86,6 +80,5 @@ class AccountSearchBar extends Component {
 }
 
 AccountSearchBar.propTypes = propTypes;
-// AccountSearchBar.contextTypes = contextTypes;
 
 export default injectIntl(AccountSearchBar);

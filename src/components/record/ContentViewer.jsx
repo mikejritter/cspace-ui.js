@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
-import { defineMessages } from 'react-intl';
+import { defineMessages, useIntl } from 'react-intl';
 import get from 'lodash/get';
 import warning from 'warning';
 import ImageContainer from '../../containers/media/ImageContainer';
@@ -31,7 +31,6 @@ const contextTypes = {
   recordType: PropTypes.string,
   vocabulary: PropTypes.string,
   csid: PropTypes.string,
-  intl: PropTypes.object,
   recordData: PropTypes.instanceOf(Immutable.Map),
 };
 
@@ -41,10 +40,10 @@ export default function ContentViewer(props, context) {
     recordType,
     vocabulary,
     csid,
-    intl,
     recordData,
   } = context;
 
+  const intl = useIntl();
   const content = get(config, ['recordTypes', recordType, 'content']);
 
   warning(content, `No content descriptor found for the record type ${recordType}. The content viewer will not be rendered.`);
