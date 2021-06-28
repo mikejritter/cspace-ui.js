@@ -71,7 +71,7 @@ const propTypes = {
   onUnrelated: PropTypes.func,
 };
 
-export class RelationEditor extends Component {
+class RelationEditor extends Component {
   constructor() {
     super();
 
@@ -402,4 +402,5 @@ export class RelationEditor extends Component {
 
 RelationEditor.propTypes = propTypes;
 
+export const BaseRelationEditor = RelationEditor;
 export default injectIntl(RelationEditor);

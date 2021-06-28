@@ -5,9 +5,10 @@ import { render } from 'react-dom';
 import { createRenderer } from 'react-test-renderer/shallow';
 import { findWithType } from 'react-shallow-testutils';
 import Immutable from 'immutable';
+import { createIntl } from 'react-intl';
 import createTestContainer from '../../../helpers/createTestContainer';
 import RecordEditorContainer from '../../../../src/containers/record/RecordEditorContainer';
-import RelationEditor, { confirmUnrelateModalName } from '../../../../src/components/record/RelationEditor';
+import { BaseRelationEditor, confirmUnrelateModalName } from '../../../../src/components/record/RelationEditor';
 import RelationButtonBar from '../../../../src/components/record/RelationButtonBar';
 import ConfirmRecordUnrelateModal from '../../../../src/components/record/ConfirmRecordUnrelateModal';
 
@@ -31,7 +32,9 @@ const config = {
   },
 };
 
-describe('RelationEditor', () => {
+const intl = createIntl({ locale: 'en' });
+
+describe.only('RelationEditor', () => {
   beforeEach(function before() {
     this.container = createTestContainer(this);
   });
@@ -56,7 +59,8 @@ describe('RelationEditor', () => {
     const shallowRenderer = createRenderer();
 
     shallowRenderer.render(
-      <RelationEditor
+      <BaseRelationEditor
+        intl={intl}
         config={config}
         subject={subject}
         object={object}
@@ -88,7 +92,8 @@ describe('RelationEditor', () => {
     const shallowRenderer = createRenderer();
 
     shallowRenderer.render(
-      <RelationEditor
+      <BaseRelationEditor
+        intl={intl}
         config={config}
         subject={subject}
         object={object}
@@ -120,7 +125,8 @@ describe('RelationEditor', () => {
     const shallowRenderer = createRenderer();
 
     shallowRenderer.render(
-      <RelationEditor
+      <BaseRelationEditor
+        intl={intl}
         config={config}
         subject={subject}
         object={object}
@@ -152,7 +158,8 @@ describe('RelationEditor', () => {
     const shallowRenderer = createRenderer();
 
     shallowRenderer.render(
-      <RelationEditor
+      <BaseRelationEditor
+        intl={intl}
         config={config}
         object={object}
         objectError={error}
@@ -200,7 +207,8 @@ describe('RelationEditor', () => {
     const shallowRenderer = createRenderer();
 
     shallowRenderer.render(
-      <RelationEditor
+      <BaseRelationEditor
+        intl={intl}
         config={config}
         subject={subject}
         object={object}
@@ -247,7 +255,8 @@ describe('RelationEditor', () => {
     const shallowRenderer = createRenderer();
 
     shallowRenderer.render(
-      <RelationEditor
+      <BaseRelationEditor
+        intl={intl}
         config={config}
         subject={subject}
         object={object}
@@ -291,7 +300,8 @@ describe('RelationEditor', () => {
     const shallowRenderer = createRenderer();
 
     shallowRenderer.render(
-      <RelationEditor
+      <BaseRelationEditor
+        intl={intl}
         config={config}
         subject={subject}
         object={object}
@@ -336,7 +346,8 @@ describe('RelationEditor', () => {
     const shallowRenderer = createRenderer();
 
     shallowRenderer.render(
-      <RelationEditor
+      <BaseRelationEditor
+        intl={intl}
         config={config}
         subject={subject}
         object={object}
@@ -381,7 +392,8 @@ describe('RelationEditor', () => {
     };
 
     render(
-      <RelationEditor
+      <BaseRelationEditor
+        intl={intl}
         config={config}
         subject={subject}
         object={object}
@@ -422,7 +434,8 @@ describe('RelationEditor', () => {
     };
 
     render(
-      <RelationEditor
+      <BaseRelationEditor
+        intl={intl}
         config={config}
         subject={subject}
         object={object}
@@ -436,7 +449,8 @@ describe('RelationEditor', () => {
     };
 
     render(
-      <RelationEditor
+      <BaseRelationEditor
+        intl={intl}
         config={config}
         subject={subject}
         object={newObject}
@@ -456,7 +470,8 @@ describe('RelationEditor', () => {
     };
 
     render(
-      <RelationEditor
+      <BaseRelationEditor
+        intl={intl}
         config={config}
         subject={newSubject}
         object={object}
@@ -473,7 +488,8 @@ describe('RelationEditor', () => {
     const newPredicate = 'pred';
 
     render(
-      <RelationEditor
+      <BaseRelationEditor
+        intl={intl}
         config={config}
         subject={subject}
         object={object}
@@ -510,7 +526,8 @@ describe('RelationEditor', () => {
     handlerCalled.should.equal(false);
 
     render(
-      <RelationEditor
+      <BaseRelationEditor
+        intl={intl}
         config={config}
         subject={subject}
         object={object}
@@ -552,7 +569,8 @@ describe('RelationEditor', () => {
     const shallowRenderer = createRenderer();
 
     shallowRenderer.render(
-      <RelationEditor
+      <BaseRelationEditor
+        intl={intl}
         config={config}
         subject={subject}
         object={object}
@@ -595,7 +613,8 @@ describe('RelationEditor', () => {
     const shallowRenderer = createRenderer();
 
     shallowRenderer.render(
-      <RelationEditor
+      <BaseRelationEditor
+        intl={intl}
         config={config}
         subject={subject}
         object={object}
@@ -640,7 +659,8 @@ describe('RelationEditor', () => {
     const shallowRenderer = createRenderer();
 
     shallowRenderer.render(
-      <RelationEditor
+      <BaseRelationEditor
+        intl={intl}
         config={config}
         subject={subject}
         object={object}
@@ -716,7 +736,8 @@ describe('RelationEditor', () => {
     const shallowRenderer = createRenderer();
 
     shallowRenderer.render(
-      <RelationEditor
+      <BaseRelationEditor
+        intl={intl}
         config={config}
         subject={subject}
         object={object}
@@ -787,7 +808,8 @@ describe('RelationEditor', () => {
     const shallowRenderer = createRenderer();
 
     shallowRenderer.render(
-      <RelationEditor
+      <BaseRelationEditor
+        intl={intl}
         config={config}
         subject={subject}
         object={object}
@@ -839,7 +861,8 @@ describe('RelationEditor', () => {
     const shallowRenderer = createRenderer();
 
     shallowRenderer.render(
-      <RelationEditor
+      <BaseRelationEditor
+        intl={intl}
         config={config}
         subject={subject}
         object={object}
