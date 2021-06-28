@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import Immutable from 'immutable';
 import get from 'lodash/get';
 import warning from 'warning';
@@ -57,6 +57,7 @@ const renderLabel = (fieldDescriptor, providedLabelMessage, computeContext, prop
 };
 
 const propTypes = {
+  intl: PropTypes.object,
   labelMessage: PropTypes.shape({
     id: PropTypes.string,
     defaultMessage: PropTypes.string,
@@ -100,7 +101,7 @@ const contextTypes = {
   subrecordData: PropTypes.instanceOf(Immutable.Map),
 };
 
-export default function Field(props, context) {
+function Field(props, context) {
   const {
     config,
     formName,
@@ -112,11 +113,11 @@ export default function Field(props, context) {
   } = context;
 
   const {
+    intl,
     labelMessage,
     viewType,
   } = props;
 
-  const intl = useIntl();
   const recordTypeConfig = contextRecordTypeConfig || get(config, ['recordTypes', recordType]);
   const fullPath = getPath(props);
 
@@ -240,3 +241,6 @@ export default function Field(props, context) {
 
 Field.contextTypes = contextTypes;
 Field.propTypes = propTypes;
+
+export const BaseField = Field;
+export default injectIntl(Field);
