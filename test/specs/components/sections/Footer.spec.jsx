@@ -7,7 +7,7 @@ import Footer from '../../../../src/components/sections/Footer';
 
 chai.should();
 
-describe.only('Footer', () => {
+describe('Footer', () => {
   beforeEach(function before() {
     this.container = createTestContainer(this);
   });
