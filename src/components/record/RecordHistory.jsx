@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { selectUnit } from '@formatjs/intl-utils';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
 
@@ -63,16 +64,14 @@ const formatTime = (timestamp) => (
     : null
 );
 
-const formatTimeRelative = (timestamp) => (
-  // todo: This isn't really formatting correctly, needs to be fixed
-  // maybe try
-  // import {selectUnit} from '@formatjs/intl-utils'
-  // const {value, unit} = selectUnit(Date.now() - 48 * 3600 * 1000)
-  // ;<FormattedRelativeTime value={value} unit={unit} />
-  timestamp
-    ? <FormattedRelativeTime value={new Date(timestamp)} />
-    : null
-);
+function formatTimeRelative(timestamp) {
+  if (timestamp) {
+    const { value, unit } = selectUnit(new Date(timestamp));
+    return <FormattedRelativeTime value={value} unit={unit} />;
+  }
+
+  return null;
+}
 
 const formatUserId = (userId) => (
   userId
