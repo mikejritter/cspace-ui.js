@@ -42,6 +42,7 @@
     "test": "cross-env NODE_ENV=test karma start --singleRun=true"
   },
   "dependencies": {
+    "@formatjs/intl-utils": "^2.3.0",
     "classnames": "^2.2.5",
     "cspace-client": "^1.1.6",
     "cspace-input": "file:../ui/cspace-input.js",
