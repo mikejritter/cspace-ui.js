@@ -575,7 +575,7 @@ export default (configContext) => {
                   messages: defineMessages({
                     fullName: {
                       id: 'field.chronologies_common.otherDatePlace.fullName',
-                      defaultMessage: 'Alternative date spacial coverage',
+                      defaultMessage: 'Alternative date spatial coverage',
                     },
                     name: {
                       id: 'field.chronologies_common.otherDatePlace.name',
