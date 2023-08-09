@@ -385,7 +385,7 @@ export default (configContext) => {
             [config]: {
               messages: defineMessages({
                 name: {
-                  id: 'field.chronologies_common.chronologyPlaces.name',
+                  id: 'field.chronologies_common.chronologyPlace.name',
                   defaultMessage: 'Spatial coverage',
                 },
               }),
