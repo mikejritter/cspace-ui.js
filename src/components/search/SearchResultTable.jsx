@@ -312,7 +312,6 @@ export default class SearchResultTable extends Component {
 
   renderTable() {
     const {
-      columnSetName,
       config,
       formatCellData,
       formatColumnLabel,
@@ -324,8 +323,6 @@ export default class SearchResultTable extends Component {
     } = this.props;
 
     if (searchResult) {
-      const recordType = searchDescriptor.get('recordType');
-      const subresource = searchDescriptor.get('subresource');
       const searchQuery = searchDescriptor.get('searchQuery');
 
       const listTypeConfig = config.listTypes[listType];
@@ -356,21 +353,7 @@ export default class SearchResultTable extends Component {
         items = Immutable.List.of(items);
       }
 
-      const columnConfigurer = subresource
-        ? config.subresources[subresource]
-        : config.recordTypes[recordType];
-
-      let columnConfig = get(columnConfigurer, ['columns', columnSetName]);
-
-      if (!columnConfig && columnSetName !== defaultProps.columnSetName) {
-        // Fall back to the default column set if the named one doesn't exist.
-
-        columnConfig = get(columnConfigurer, ['columns', defaultProps.columnSetName]);
-      }
-
-      if (!columnConfig) {
-        columnConfig = [];
-      }
+      const columnConfig = this.getColumnConfig();
 
       const columns = Object.keys(columnConfig)
         .filter((name) => !columnConfig[name].disabled)
