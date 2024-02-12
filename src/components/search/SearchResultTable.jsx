@@ -87,14 +87,20 @@ const rowRenderer = (params, location) => {
   if (location) {
     return (
       <Link
-        {...a11yProps}
-        className={className}
         key={key}
-        role="row"
-        style={style}
+        role="link"
         to={location}
+        style={style}
+        className={styles.common}
       >
-        {columns}
+        <div
+          role="row"
+          {...a11yProps}
+          className={className}
+          key={key}
+        >
+          {columns}
+        </div>
       </Link>
     );
   }
