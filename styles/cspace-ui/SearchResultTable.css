@@ -2,6 +2,6 @@
   box-sizing: border-box;
 }
 
-.common :global(a.ReactVirtualized__Table__row) {
+.common :global(a.cspace-ui-SearchResultTable--common) {
   text-decoration: none;
 }
