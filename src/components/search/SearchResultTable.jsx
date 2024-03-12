@@ -103,6 +103,7 @@ const rowRenderer = (params, location, ariaLabel) => {
           {...a11yProps}
           className={className}
           key={key}
+          tabIndex={-1}
         >
           {columns}
         </div>
