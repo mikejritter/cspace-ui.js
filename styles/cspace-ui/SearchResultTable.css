@@ -5,3 +5,7 @@
 .common :global(a.cspace-ui-SearchResultTable--common) {
   text-decoration: none;
 }
+
+.common :global(a.cspace-ui-SearchResultTable--common:focus) {
+  outline-offset: -1px;
+}
