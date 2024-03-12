@@ -98,6 +98,7 @@ const rowRenderer = (params, location) => {
           {...a11yProps}
           className={className}
           key={key}
+          tabIndex={-1}
         >
           {columns}
         </div>
