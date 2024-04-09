@@ -51,9 +51,9 @@ export default function ToolPage(props) {
 
   return (
     <div className={styles.common}>
-      <TitleBar title={title} updateDocumentTitle />
+      <TitleBar id={messages.title.id} title={title} updateDocumentTitle />
 
-      <ToolNavBar basename={basename} tabs={permittedTabs} />
+      <ToolNavBar basename={basename} tabs={permittedTabs} labelledBy={messages.title.id} />
 
       <Switch>
         <Redirect exact path={basename} to={`${basename}/${redirectTabName}`} />

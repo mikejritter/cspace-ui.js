@@ -33,12 +33,14 @@ const renderLinkItem = (basename, tab) => (
 );
 
 const propTypes = {
+  labelledBy: PropTypes.string,
   basename: PropTypes.string,
   tabs: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default function ToolNavBar(props) {
   const {
+    labelledBy,
     basename,
     tabs,
   } = props;
@@ -46,7 +48,7 @@ export default function ToolNavBar(props) {
   const items = tabs.map((tab) => renderLinkItem(basename, tab));
 
   return (
-    <nav className={styles.common}>
+    <nav className={styles.common} aria-labelledby={labelledBy}>
       <ul>
         {items}
       </ul>

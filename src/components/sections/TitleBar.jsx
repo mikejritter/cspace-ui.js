@@ -8,6 +8,7 @@ import styles from '../../../styles/cspace-ui/TitleBar.css';
 import subtitleStyles from '../../../styles/cspace-ui/Subtitle.css';
 
 const propTypes = {
+  id: PropTypes.string,
   title: PropTypes.node,
   subtitle: PropTypes.node,
   aside: PropTypes.node,
@@ -171,11 +172,12 @@ export default class TitleBar extends Component {
 
   renderTitle() {
     const {
+      id,
       title,
     } = this.props;
 
     return (
-      <h1>{title}</h1>
+      <h1 id={id}>{title}</h1>
     );
   }
 
