@@ -281,7 +281,7 @@ export default class AccountPage extends Component {
     }
 
     return (
-      <div className={styles.common}>
+      <div id={`${recordType}-panel`} className={styles.common} role="tabpanel" aria-labelledby={recordType}>
         <div>
           <AdminTabButtonBar
             isCreatable={canCreate(recordType, perms)}
