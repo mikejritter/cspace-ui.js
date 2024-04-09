@@ -21,11 +21,13 @@ const messages = defineMessages({
 });
 
 const renderLinkItem = (basename, tab) => (
-  <li key={tab}>
+  <li key={tab} role="tab">
     <NavLink
+      id={tab}
       to={`${basename}/${tab}`}
       className={itemStyles.common}
       activeClassName={itemStyles.active}
+      aria-controls={`${tab}-panel`}
     >
       <FormattedMessage {...messages[tab]} />
     </NavLink>
@@ -49,7 +51,7 @@ export default function ToolNavBar(props) {
 
   return (
     <nav className={styles.common} aria-labelledby={labelledBy}>
-      <ul>
+      <ul role="tablist">
         {items}
       </ul>
     </nav>

@@ -285,7 +285,7 @@ export default class ReportPage extends Component {
     }
 
     return (
-      <div className={styles.common}>
+      <div id={`${recordType}-panel`} className={styles.common} role="tabpanel" aria-labelledby={recordType}>
         <SearchPanelContainer
           collapsed={false}
           collapsible={false}

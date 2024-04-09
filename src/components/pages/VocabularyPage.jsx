@@ -247,7 +247,7 @@ export default class VocabularyPage extends Component {
     }
 
     return (
-      <div className={styles.common}>
+      <div id={`${recordType}-panel`} className={styles.common} role="tabpanel" aria-labelledby={recordType}>
         <div>
           <SearchPanelContainer
             collapsed={false}
