@@ -49,9 +49,9 @@ export default function AdminPage(props) {
 
   return (
     <div className={styles.common}>
-      <TitleBar title={title} updateDocumentTitle />
+      <TitleBar id={messages.title.id} title={title} updateDocumentTitle />
 
-      <AdminNavBar basename={basename} tabs={permittedTabs} />
+      <AdminNavBar basename={basename} tabs={permittedTabs} labelledBy={messages.title.id} />
 
       <Switch>
         <Redirect exact path={basename} to={`${basename}/${redirectTabName}`} />
