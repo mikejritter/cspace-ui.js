@@ -28,7 +28,7 @@ import loanout from './loanout';
 import location from './location';
 import media from './media';
 import movement from './movement';
-import nagpraclaim from './nagpraclaim';
+import claim2 from './claim2';
 import nagprainventory from './nagprainventory';
 import object from './object';
 import objectexit from './objectexit';
@@ -59,6 +59,7 @@ export default [
   blob,
   citation,
   chronology,
+  claim2,
   collectionobject,
   concept,
   conditioncheck,
@@ -78,7 +79,6 @@ export default [
   location,
   media,
   movement,
-  nagpraclaim,
   nagprainventory,
   object,
   objectexit,

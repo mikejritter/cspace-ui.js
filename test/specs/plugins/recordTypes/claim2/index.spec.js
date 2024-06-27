@@ -1,29 +1,29 @@
-import nagpraclaimRecordTypePluginFactory from '../../../../../src/plugins/recordTypes/nagpraclaim';
+import claim2RecordTypePluginFactory from '../../../../../src/plugins/recordTypes/claim2';
 import createConfigContext from '../../../../../src/helpers/createConfigContext';
 
 chai.should();
 
-describe('nagpraclaim record plugin', () => {
+describe('claim2 record plugin', () => {
   const config = {};
-  const nagpraclaimRecordTypePlugin = nagpraclaimRecordTypePluginFactory(config);
-  const configContext = createConfigContext(nagpraclaimRecordTypePlugin);
+  const claim2RecordTypePlugin = claim2RecordTypePluginFactory(config);
+  const configContext = createConfigContext(claim2RecordTypePlugin);
 
   it('should have the correct shape', () => {
-    const pluginConfiguration = nagpraclaimRecordTypePlugin(configContext);
+    const pluginConfiguration = claim2RecordTypePlugin(configContext);
 
     const {
       recordTypes,
     } = pluginConfiguration;
 
-    recordTypes.should.have.property('nagpraclaim');
+    recordTypes.should.have.property('claim2');
 
-    const nagpraclaimRecordType = recordTypes.nagpraclaim;
+    const claim2RecordType = recordTypes.claim2;
 
-    nagpraclaimRecordType.should.have.property('title').that.is.a('function');
-    nagpraclaimRecordType.should.have.property('forms').that.is.an('object');
-    nagpraclaimRecordType.should.have.property('messages').that.is.an('object');
-    nagpraclaimRecordType.should.have.property('serviceConfig').that.is.an('object');
+    claim2RecordType.should.have.property('title').that.is.a('function');
+    claim2RecordType.should.have.property('forms').that.is.an('object');
+    claim2RecordType.should.have.property('messages').that.is.an('object');
+    claim2RecordType.should.have.property('serviceConfig').that.is.an('object');
 
-    nagpraclaimRecordType.title().should.be.a('string');
+    claim2RecordType.title().should.be.a('string');
   });
 });
