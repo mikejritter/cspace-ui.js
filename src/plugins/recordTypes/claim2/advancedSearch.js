@@ -13,7 +13,7 @@ export default (configContext) => {
     value: [
       {
         op: OP_CONTAIN,
-        path: 'ns2:nagpraclaims_common/claimNumber',
+        path: 'ns2:claims2_common/claimNumber',
       },
       ...extensions.core.advancedSearch,
     ],
