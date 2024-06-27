@@ -100,18 +100,18 @@ export default (configContext) => {
             },
           },
         },
-        alternativeTitleGroupList: {
+        alternativeIdentifierGroupList: {
           [config]: {
             view: {
               type: CompoundInput,
             },
           },
-          alternativeTitleGroup: {
+          alternativeIdentifierGroup: {
             [config]: {
               messages: defineMessages({
                 name: {
-                  id: 'field.claim2_common.alternativeTitleGroup.name',
-                  defaultMessage: 'Alternative title',
+                  id: 'field.claim2_common.alternativeIdentifierGroup.name',
+                  defaultMessage: 'Alternative identifier',
                 },
               }),
               repeating: true,
@@ -122,16 +122,16 @@ export default (configContext) => {
                 },
               },
             },
-            alternativeTitle: {
+            alternativeIdentifier: {
               [config]: {
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.alternativeTitle.fullName',
-                    defaultMessage: 'Alternative title name/number',
+                    id: 'field.claim2_common.alternativeIdentifier.fullName',
+                    defaultMessage: 'Alternative identifier value',
                   },
                   name: {
-                    id: 'field.claim2_common.alternativeTitle.name',
-                    defaultMessage: 'Name/number',
+                    id: 'field.claim2_common.alternativeIdentifier.name',
+                    defaultMessage: 'Value',
                   },
                 }),
                 view: {
@@ -139,15 +139,15 @@ export default (configContext) => {
                 },
               },
             },
-            alternativeTitleNote: {
+            alternativeIdentifierNote: {
               [config]: {
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.alternativeTitleNote.fullName',
-                    defaultMessage: 'Alternative title note',
+                    id: 'field.claim2_common.alternativeIdentifierNote.fullName',
+                    defaultMessage: 'Alternative identifier note',
                   },
                   name: {
-                    id: 'field.claim2_common.alternativeTitleNote.name',
+                    id: 'field.claim2_common.alternativeIdentifierNote.name',
                     defaultMessage: 'Note',
                   },
                 }),
@@ -555,17 +555,17 @@ export default (configContext) => {
             },
           },
         },
-        nagpraStatusGroupList: {
+        statusGroupList: {
           [config]: {
             view: {
               type: CompoundInput,
             },
           },
-          nagpraStatusGroup: {
+          statusGroup: {
             [config]: {
               messages: defineMessages({
                 name: {
-                  id: 'field.claim2_common.nagpraStatusGroup.name',
+                  id: 'field.claim2_common.statusGroup.name',
                   defaultMessage: 'Claim status',
                 },
               }),
@@ -574,20 +574,23 @@ export default (configContext) => {
                 type: CompoundInput,
               },
             },
-            statusGroup: {
+            statusApprovalGroup: {
               [config]: {
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.statusGroup.fullName',
+                    id: 'field.claim2_common.statusApprovalGroup.fullName',
                     defaultMessage: 'Claim status group',
                   },
                   name: {
-                    id: 'field.claim2_common.statusGroup.name',
+                    id: 'field.claim2_common.statusApprovalGroup.name',
                     defaultMessage: 'Group',
                   },
                 }),
                 view: {
-                  type: TextInput,
+                  type: TermPickerInput,
+                  props: {
+                    source: 'deaccessionapprovalgroup',
+                  },
                 },
               },
             },
@@ -672,17 +675,17 @@ export default (configContext) => {
             },
           },
         },
-        nagpraDocumentationGroupList: {
+        documentationGroupList: {
           [config]: {
             view: {
               type: CompoundInput,
             },
           },
-          nagpraDocumentationGroup: {
+          documentationGroup: {
             [config]: {
               messages: defineMessages({
                 name: {
-                  id: 'field.claim2_common.nagpraDocumentationGroup.name',
+                  id: 'field.claim2_common.documentationGroup.name',
                   defaultMessage: 'Claim documentation',
                 },
               }),
@@ -771,15 +774,15 @@ export default (configContext) => {
                 },
               },
             },
-            documentationGroup: {
+            documentationApprovalGroup: {
               [config]: {
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.documentationGroup.fullName',
+                    id: 'field.claim2_common.documentationApprovalGroup.fullName',
                     defaultMessage: 'Claim documentation group',
                   },
                   name: {
-                    id: 'field.claim2_common.documentationGroup.name',
+                    id: 'field.claim2_common.documentationApprovalGroup.name',
                     defaultMessage: 'Group',
                   },
                 }),
