@@ -564,8 +564,8 @@ export default (configContext) => {
           statusGroup: {
             [config]: {
               messages: defineMessages({
-                name: {
-                  id: 'field.claim2_common.statusGroup.name',
+                fullName: {
+                  id: 'field.claim2_common.statusGroup.fullName',
                   defaultMessage: 'Claim status',
                 },
               }),
@@ -684,8 +684,8 @@ export default (configContext) => {
           documentationGroup: {
             [config]: {
               messages: defineMessages({
-                name: {
-                  id: 'field.claim2_common.documentationGroup.name',
+                fullName: {
+                  id: 'field.claim2_common.documentationGroup.fullName',
                   defaultMessage: 'Claim documentation',
                 },
               }),
