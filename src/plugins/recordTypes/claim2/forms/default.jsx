@@ -90,7 +90,7 @@ const template = (configContext) => {
           <Field name="statusGroup">
             <Panel>
               <Row>
-                <Field name="statusApprovalGroup" />
+                <Field name="statusGroupType" />
                 <Field name="statusIndividual" />
                 <Field name="status" />
                 <Field name="statusDate" />
@@ -106,7 +106,7 @@ const template = (configContext) => {
           <Field name="documentationGroup">
             <Panel>
               <Row>
-                <Field name="documentationApprovalGroup" />
+                <Field name="documentationGroupType" />
                 <Field name="documentationIndividual" />
                 <Field name="documentationStatus" />
                 <Field name="documentationDate" />
