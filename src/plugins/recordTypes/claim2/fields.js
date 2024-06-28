@@ -32,15 +32,15 @@ export default (configContext) => {
         view: {
           type: CompoundInput,
           props: {
-            defaultChildSubpath: 'ns2:claim2_common',
+            defaultChildSubpath: 'ns2:claims2_common',
           },
         },
       },
       ...extensions.core.fields,
-      'ns2:claim2_common': {
+      'ns2:claims2_common': {
         [config]: {
           service: {
-            ns: 'http://collectionspace.org/services/claim',
+            ns: 'http://collectionspace.org/services/claim2',
           },
         },
         claimNumber: {
@@ -48,11 +48,11 @@ export default (configContext) => {
             cloneable: false,
             messages: defineMessages({
               inUse: {
-                id: 'field.claim2_common.claimNumber.inUse',
+                id: 'field.claims2_common.claimNumber.inUse',
                 defaultMessage: 'The identification number {value} is in use by another record.',
               },
               name: {
-                id: 'field.claim2_common.claimNumber.name',
+                id: 'field.claims2_common.claimNumber.name',
                 defaultMessage: 'Claim number',
               },
             }),
@@ -63,7 +63,7 @@ export default (configContext) => {
             validate: (validationContext) => validateNotInUse({
               configContext,
               validationContext,
-              fieldName: 'claim2_common:claimNumber',
+              fieldName: 'claims2_common:claimNumber',
             }),
             view: {
               type: IDGeneratorInput,
@@ -77,7 +77,7 @@ export default (configContext) => {
           [config]: {
             messages: defineMessages({
               name: {
-                id: 'field.claim2_common.title.name',
+                id: 'field.claims2_common.title.name',
                 defaultMessage: 'Title',
               },
             }),
@@ -91,7 +91,7 @@ export default (configContext) => {
             dataType: DATA_TYPE_DATE,
             messages: defineMessages({
               name: {
-                id: 'field.claim2_common.claimDate.name',
+                id: 'field.claims2_common.claimDate.name',
                 defaultMessage: 'Origination date',
               },
             }),
@@ -110,7 +110,7 @@ export default (configContext) => {
             [config]: {
               messages: defineMessages({
                 name: {
-                  id: 'field.claim2_common.alternativeIdentifierGroup.name',
+                  id: 'field.claims2_common.alternativeIdentifierGroup.name',
                   defaultMessage: 'Alternative identifier',
                 },
               }),
@@ -126,11 +126,11 @@ export default (configContext) => {
               [config]: {
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.alternativeIdentifier.fullName',
+                    id: 'field.claims2_common.alternativeIdentifier.fullName',
                     defaultMessage: 'Alternative identifier value',
                   },
                   name: {
-                    id: 'field.claim2_common.alternativeIdentifier.name',
+                    id: 'field.claims2_common.alternativeIdentifier.name',
                     defaultMessage: 'Value',
                   },
                 }),
@@ -143,11 +143,11 @@ export default (configContext) => {
               [config]: {
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.alternativeIdentifierNote.fullName',
+                    id: 'field.claims2_common.alternativeIdentifierNote.fullName',
                     defaultMessage: 'Alternative identifier note',
                   },
                   name: {
-                    id: 'field.claim2_common.alternativeIdentifierNote.name',
+                    id: 'field.claims2_common.alternativeIdentifierNote.name',
                     defaultMessage: 'Note',
                   },
                 }),
@@ -168,7 +168,7 @@ export default (configContext) => {
             [config]: {
               messages: defineMessages({
                 name: {
-                  id: 'field.claim2_common.type.name',
+                  id: 'field.claims2_common.type.name',
                   defaultMessage: 'Type',
                 },
               }),
@@ -189,7 +189,7 @@ export default (configContext) => {
             [config]: {
               messages: defineMessages({
                 name: {
-                  id: 'field.claim2_common.note.name',
+                  id: 'field.claims2_common.note.name',
                   defaultMessage: 'Note',
                 },
               }),
@@ -213,7 +213,7 @@ export default (configContext) => {
             [config]: {
               messages: defineMessages({
                 name: {
-                  id: 'field.claim2_common.treatmentNote.name',
+                  id: 'field.claims2_common.treatmentNote.name',
                   defaultMessage: 'Treatment note',
                 },
               }),
@@ -237,7 +237,7 @@ export default (configContext) => {
             [config]: {
               messages: defineMessages({
                 name: {
-                  id: 'field.claim2_common.partiesInvolvedGroup.name',
+                  id: 'field.claims2_common.partiesInvolvedGroup.name',
                   defaultMessage: 'Party involved',
                 },
               }),
@@ -253,11 +253,11 @@ export default (configContext) => {
               [config]: {
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.involvedParty.fullName',
+                    id: 'field.claims2_common.involvedParty.fullName',
                     defaultMessage: 'Party involved name',
                   },
                   name: {
-                    id: 'field.claim2_common.involvedParty.name',
+                    id: 'field.claims2_common.involvedParty.name',
                     defaultMessage: 'Name',
                   },
                 }),
@@ -273,11 +273,11 @@ export default (configContext) => {
               [config]: {
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.involvedOnBehalfOf.fullName',
+                    id: 'field.claims2_common.involvedOnBehalfOf.fullName',
                     defaultMessage: 'Party involved on behalf of',
                   },
                   name: {
-                    id: 'field.claim2_common.involvedOnBehalfOf.name',
+                    id: 'field.claims2_common.involvedOnBehalfOf.name',
                     defaultMessage: 'On behalf of',
                   },
                 }),
@@ -293,11 +293,11 @@ export default (configContext) => {
               [config]: {
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.involvedRole.fullName',
+                    id: 'field.claims2_common.involvedRole.fullName',
                     defaultMessage: 'Party involved role',
                   },
                   name: {
-                    id: 'field.claim2_common.involvedRole.name',
+                    id: 'field.claims2_common.involvedRole.name',
                     defaultMessage: 'Role',
                   },
                 }),
@@ -321,7 +321,7 @@ export default (configContext) => {
             [config]: {
               messages: defineMessages({
                 name: {
-                  id: 'field.claim2_common.geographicPlaceGroup.name',
+                  id: 'field.claims2_common.geographicPlaceGroup.name',
                   defaultMessage: 'Place represented',
                 },
               }),
@@ -337,11 +337,11 @@ export default (configContext) => {
               [config]: {
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.geographicPlace.fullName',
+                    id: 'field.claims2_common.geographicPlace.fullName',
                     defaultMessage: 'Place represented name',
                   },
                   name: {
-                    id: 'field.claim2_common.geographicPlace.name',
+                    id: 'field.claims2_common.geographicPlace.name',
                     defaultMessage: 'Name',
                   },
                 }),
@@ -357,11 +357,11 @@ export default (configContext) => {
               [config]: {
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.geographicPlaceNote.fullName',
+                    id: 'field.claims2_common.geographicPlaceNote.fullName',
                     defaultMessage: 'Place represented note',
                   },
                   name: {
-                    id: 'field.claim2_common.geographicPlaceNote.name',
+                    id: 'field.claims2_common.geographicPlaceNote.name',
                     defaultMessage: 'Note',
                   },
                 }),
@@ -382,7 +382,7 @@ export default (configContext) => {
             [config]: {
               messages: defineMessages({
                 name: {
-                  id: 'field.claim2_common.timePeriodGroup.name',
+                  id: 'field.claims2_common.timePeriodGroup.name',
                   defaultMessage: 'Time period',
                 },
               }),
@@ -398,11 +398,11 @@ export default (configContext) => {
               [config]: {
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.timePeriod.fullName',
+                    id: 'field.claims2_common.timePeriod.fullName',
                     defaultMessage: 'Time period era',
                   },
                   name: {
-                    id: 'field.claim2_common.timePeriod.name',
+                    id: 'field.claims2_common.timePeriod.name',
                     defaultMessage: 'Era',
                   },
                 }),
@@ -418,11 +418,11 @@ export default (configContext) => {
               [config]: {
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.timePeriodNote.fullName',
+                    id: 'field.claims2_common.timePeriodNote.fullName',
                     defaultMessage: 'Time period note',
                   },
                   name: {
-                    id: 'field.claim2_common.timePeriodNote.name',
+                    id: 'field.claims2_common.timePeriodNote.name',
                     defaultMessage: 'Note',
                   },
                 }),
@@ -443,7 +443,7 @@ export default (configContext) => {
             [config]: {
               messages: defineMessages({
                 name: {
-                  id: 'field.claim2_common.culturalGroup.name',
+                  id: 'field.claims2_common.culturalGroup.name',
                   defaultMessage: 'Cultural group',
                 },
               }),
@@ -459,11 +459,11 @@ export default (configContext) => {
               [config]: {
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.culture.fullName',
+                    id: 'field.claims2_common.culture.fullName',
                     defaultMessage: 'Cultural group name',
                   },
                   name: {
-                    id: 'field.claim2_common.culture.name',
+                    id: 'field.claims2_common.culture.name',
                     defaultMessage: 'Name',
                   },
                 }),
@@ -479,11 +479,11 @@ export default (configContext) => {
               [config]: {
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.cultureNote.fullName',
+                    id: 'field.claims2_common.cultureNote.fullName',
                     defaultMessage: 'Cultural group note',
                   },
                   name: {
-                    id: 'field.claim2_common.cultureNote.name',
+                    id: 'field.claims2_common.cultureNote.name',
                     defaultMessage: 'Note',
                   },
                 }),
@@ -504,7 +504,7 @@ export default (configContext) => {
             [config]: {
               messages: defineMessages({
                 name: {
-                  id: 'field.claim2_common.archaeologicalSiteGroup.name',
+                  id: 'field.claims2_common.archaeologicalSiteGroup.name',
                   defaultMessage: 'Archaeological site',
                 },
               }),
@@ -520,11 +520,11 @@ export default (configContext) => {
               [config]: {
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.archaeologicalSite.fullName',
+                    id: 'field.claims2_common.archaeologicalSite.fullName',
                     defaultMessage: 'Archaeological site name',
                   },
                   name: {
-                    id: 'field.claim2_common.archaeologicalSite.name',
+                    id: 'field.claims2_common.archaeologicalSite.name',
                     defaultMessage: 'Name',
                   },
                 }),
@@ -540,11 +540,11 @@ export default (configContext) => {
               [config]: {
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.archaeologicalSiteNote.fullName',
+                    id: 'field.claims2_common.archaeologicalSiteNote.fullName',
                     defaultMessage: 'Archaeological site note',
                   },
                   name: {
-                    id: 'field.claim2_common.archaeologicalSiteNote.name',
+                    id: 'field.claims2_common.archaeologicalSiteNote.name',
                     defaultMessage: 'Note',
                   },
                 }),
@@ -565,7 +565,7 @@ export default (configContext) => {
             [config]: {
               messages: defineMessages({
                 fullName: {
-                  id: 'field.claim2_common.statusGroup.fullName',
+                  id: 'field.claims2_common.statusGroup.fullName',
                   defaultMessage: 'Claim status',
                 },
               }),
@@ -574,15 +574,15 @@ export default (configContext) => {
                 type: CompoundInput,
               },
             },
-            statusApprovalGroup: {
+            statusGroupType: {
               [config]: {
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.statusApprovalGroup.fullName',
+                    id: 'field.claims2_common.statusGroupType.fullName',
                     defaultMessage: 'Claim status group',
                   },
                   name: {
-                    id: 'field.claim2_common.statusApprovalGroup.name',
+                    id: 'field.claims2_common.statusGroupType.name',
                     defaultMessage: 'Group',
                   },
                 }),
@@ -598,11 +598,11 @@ export default (configContext) => {
               [config]: {
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.statusIndividual.fullName',
+                    id: 'field.claims2_common.statusIndividual.fullName',
                     defaultMessage: 'Claim status individual',
                   },
                   name: {
-                    id: 'field.claim2_common.statusIndividual.name',
+                    id: 'field.claims2_common.statusIndividual.name',
                     defaultMessage: 'Individual',
                   },
                 }),
@@ -618,11 +618,11 @@ export default (configContext) => {
               [config]: {
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.status.fullName',
+                    id: 'field.claims2_common.status.fullName',
                     defaultMessage: 'Claim status state',
                   },
                   name: {
-                    id: 'field.claim2_common.status.name',
+                    id: 'field.claims2_common.status.name',
                     defaultMessage: 'State',
                   },
                 }),
@@ -639,11 +639,11 @@ export default (configContext) => {
                 dataType: DATA_TYPE_DATE,
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.statusDate.fullName',
+                    id: 'field.claims2_common.statusDate.fullName',
                     defaultMessage: 'Claim status date',
                   },
                   name: {
-                    id: 'field.claim2_common.statusDate.name',
+                    id: 'field.claims2_common.statusDate.name',
                     defaultMessage: 'Date',
                   },
                 }),
@@ -656,11 +656,11 @@ export default (configContext) => {
               [config]: {
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.statusNote.fullName',
+                    id: 'field.claims2_common.statusNote.fullName',
                     defaultMessage: 'Claim status note',
                   },
                   name: {
-                    id: 'field.claim2_common.statusNote.name',
+                    id: 'field.claims2_common.statusNote.name',
                     defaultMessage: 'Note',
                   },
                 }),
@@ -685,7 +685,7 @@ export default (configContext) => {
             [config]: {
               messages: defineMessages({
                 fullName: {
-                  id: 'field.claim2_common.documentationGroup.fullName',
+                  id: 'field.claims2_common.documentationGroup.fullName',
                   defaultMessage: 'Claim documentation',
                 },
               }),
@@ -698,11 +698,11 @@ export default (configContext) => {
               [config]: {
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.documentationNote.fullName',
+                    id: 'field.claims2_common.documentationNote.fullName',
                     defaultMessage: 'Claim documentation note',
                   },
                   name: {
-                    id: 'field.claim2_common.documentationNote.name',
+                    id: 'field.claims2_common.documentationNote.name',
                     defaultMessage: 'Note',
                   },
                 }),
@@ -721,11 +721,11 @@ export default (configContext) => {
                 dataType: DATA_TYPE_DATE,
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.documentationDate.fullName',
+                    id: 'field.claims2_common.documentationDate.fullName',
                     defaultMessage: 'Claim documentation date',
                   },
                   name: {
-                    id: 'field.claim2_common.documentationDate.name',
+                    id: 'field.claims2_common.documentationDate.name',
                     defaultMessage: 'Date',
                   },
                 }),
@@ -738,11 +738,11 @@ export default (configContext) => {
               [config]: {
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.documentationStatus.fullName',
+                    id: 'field.claims2_common.documentationStatus.fullName',
                     defaultMessage: 'Claim documentation status',
                   },
                   name: {
-                    id: 'field.claim2_common.documentationStatus.name',
+                    id: 'field.claims2_common.documentationStatus.name',
                     defaultMessage: 'Status',
                   },
                 }),
@@ -758,11 +758,11 @@ export default (configContext) => {
               [config]: {
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.documentationIndividual.fullName',
+                    id: 'field.claims2_common.documentationIndividual.fullName',
                     defaultMessage: 'Claim documentation individual',
                   },
                   name: {
-                    id: 'field.claim2_common.documentationIndividual.name',
+                    id: 'field.claims2_common.documentationIndividual.name',
                     defaultMessage: 'Individual',
                   },
                 }),
@@ -774,15 +774,15 @@ export default (configContext) => {
                 },
               },
             },
-            documentationApprovalGroup: {
+            documentationGroupType: {
               [config]: {
                 messages: defineMessages({
                   fullName: {
-                    id: 'field.claim2_common.documentationApprovalGroup.fullName',
+                    id: 'field.claims2_common.documentationGroupType.fullName',
                     defaultMessage: 'Claim documentation group',
                   },
                   name: {
-                    id: 'field.claim2_common.documentationApprovalGroup.name',
+                    id: 'field.claims2_common.documentationGroupType.name',
                     defaultMessage: 'Group',
                   },
                 }),
