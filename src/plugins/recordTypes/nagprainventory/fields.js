@@ -480,11 +480,11 @@ export default (configContext) => {
                 messages: defineMessages({
                   fullName: {
                     id: 'field.nagprainventories_common.inventoryStatus.fullName',
-                    defaultMessage: 'Inventory status state',
+                    defaultMessage: 'Inventory status value',
                   },
                   name: {
                     id: 'field.nagprainventories_common.inventoryStatus.name',
-                    defaultMessage: 'State',
+                    defaultMessage: 'Value',
                   },
                 }),
                 view: {
