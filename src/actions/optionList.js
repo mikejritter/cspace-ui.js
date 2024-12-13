@@ -290,7 +290,11 @@ const markFormUsedFields = (fields, form) => {
  */
 const markUsedFields = (fields, forms = {}) => {
   Object.keys(forms).forEach((formName) => {
-    markFormUsedFields(fields, forms[formName]);
+    const form = forms[formName];
+
+    if (!form.disabled) {
+      markFormUsedFields(fields, form);
+    }
   });
 };
 
