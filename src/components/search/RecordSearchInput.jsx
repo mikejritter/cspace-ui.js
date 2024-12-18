@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { getDisplayName } from 'cspace-refname';
 import { defineMessages, FormattedMessage } from 'react-intl';
 import { components as inputComponents } from 'cspace-input';
 import { getRecordTypeNameByUri, getFirstColumnName } from '../../helpers/configHelpers';
@@ -56,8 +57,9 @@ export default class RecordSearchInput extends Component {
       const descriptions = value.valueSeq().take(itemLimit).map((item) => {
         const recordType = getRecordTypeNameByUri(config, item.get('uri'));
         const firstColumnName = getFirstColumnName(config, recordType);
+        const firstColumnValue = item.get(firstColumnName);
 
-        return (item.get(firstColumnName) || item.get('csid')) || '?';
+        return (getDisplayName(firstColumnValue) || firstColumnValue || item.get('csid')) || '?';
       }).toJS();
 
       return (
