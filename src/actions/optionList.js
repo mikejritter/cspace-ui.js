@@ -5,6 +5,7 @@ import warning from 'warning';
 import { getOptionList } from '../reducers';
 import Field from '../components/record/Field';
 import { DATA_TYPE_STRUCTURED_DATE } from '../constants/dataTypes';
+import { CompoundInput } from '../helpers/configContextInputs';
 import { formatExtensionFieldName } from '../helpers/formatHelpers';
 
 import {
@@ -247,7 +248,7 @@ const markComponentFields = (fieldDescriptor, component, parentPath = []) => {
   let componentFieldDescriptor = fieldDescriptor;
   let path = parentPath;
 
-  if (type === Field) {
+  if (type === Field || type === CompoundInput) {
     let { subpath } = props;
 
     if (typeof subpath === 'undefined') {
