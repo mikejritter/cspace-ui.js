@@ -156,4 +156,48 @@ export default {
       servicePath: 'urn:cspace:name(occasion)',
     },
   },
+  ethculture: {
+    messages: defineMessages({
+      name: {
+        id: 'vocab.concept.ethculture.name',
+        description: 'The name of the vocabulary.',
+        defaultMessage: 'Cultural Group',
+      },
+      collectionName: {
+        id: 'vocab.concept.ethculture.collectionName',
+        description: 'The name of a collection of records from the vocabulary.',
+        defaultMessage: 'Cultural Groups',
+      },
+      itemName: {
+        id: 'vocab.concept.ethculture.itemName',
+        description: 'The name of a record from the vocabulary.',
+        defaultMessage: 'Cultural Group',
+      },
+    }),
+    serviceConfig: {
+      servicePath: 'urn:cspace:name(ethculture)',
+    },
+  },
+  archculture: {
+    messages: defineMessages({
+      name: {
+        id: 'vocab.concept.archculture.name',
+        description: 'The name of the vocabulary.',
+        defaultMessage: 'Archaeological Culture',
+      },
+      collectionName: {
+        id: 'vocab.concept.archculture.collectionName',
+        description: 'The name of a collection of records from the vocabulary.',
+        defaultMessage: 'Archaeological Cultures',
+      },
+      itemName: {
+        id: 'vocab.concept.archculture.itemName',
+        description: 'The name of a record from the vocabulary.',
+        defaultMessage: 'Archaeological Culture',
+      },
+    }),
+    serviceConfig: {
+      servicePath: 'urn:cspace:name(archculture)',
+    },
+  },
 };
