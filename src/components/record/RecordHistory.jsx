@@ -63,12 +63,13 @@ const formatTime = (timestamp) => (
     : null
 );
 
-// todo: Implementing FormattedRelative behavior
-const formatTimeRelative = (timestamp) => (
-  timestamp
-    ? <FormattedRelativeTime value={timestamp} />
-    : null
-);
+const formatTimeRelative = (timestamp) => {
+  if (timestamp) {
+    const value = (Date.parse(timestamp) - Date.now()) / 1000;
+    return <FormattedRelativeTime value={value} updateIntervalInSeconds={60} />;
+  }
+  return null;
+};
 
 const formatUserId = (userId) => (
   userId
