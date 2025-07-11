@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { defineMessages, FormattedMessage } from 'react-intl';
+import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import Immutable from 'immutable';
 import get from 'lodash/get';
@@ -38,6 +38,7 @@ const propTypes = {
   config: PropTypes.shape({
     listTypes: PropTypes.object,
   }),
+  intl: PropTypes.object,
   isFiltered: PropTypes.bool,
   linkItems: PropTypes.bool,
   name: PropTypes.string,
@@ -70,11 +71,7 @@ const defaultProps = {
   showSearchButton: true,
 };
 
-const contextTypes = {
-  intl: PropTypes.object,
-};
-
-export default class SearchPanel extends Component {
+class SearchPanel extends Component {
   constructor() {
     super();
 
@@ -364,6 +361,7 @@ export default class SearchPanel extends Component {
       color,
       columnSetName,
       config,
+      intl,
       linkItems,
       listType,
       name,
@@ -377,10 +375,6 @@ export default class SearchPanel extends Component {
       getItemLocation,
       onItemClick,
     } = this.props;
-
-    const {
-      intl,
-    } = this.context;
 
     const {
       isSearchToRelateModalOpen,
@@ -460,4 +454,5 @@ export default class SearchPanel extends Component {
 
 SearchPanel.propTypes = propTypes;
 SearchPanel.defaultProps = defaultProps;
-SearchPanel.contextTypes = contextTypes;
+
+export default injectIntl(SearchPanel);

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useIntl } from 'react-intl';
 import FooterContainer from '../../containers/sections/FooterContainer';
 import Logo from '../sections/Logo';
 import styles from '../../../styles/cspace-ui/PublicPage.css';
@@ -23,6 +24,7 @@ const contextTypes = {
 };
 
 export default function PublicPage(props, context) {
+  const intl = useIntl();
   const {
     decorated,
     children,
@@ -30,7 +32,6 @@ export default function PublicPage(props, context) {
 
   const {
     config,
-    intl,
   } = context;
 
   let header;

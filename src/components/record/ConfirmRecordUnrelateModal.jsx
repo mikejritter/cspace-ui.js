@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { defineMessages, FormattedMessage } from 'react-intl';
+import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
 import Immutable from 'immutable';
 import { Modal } from 'cspace-layout';
 import CancelButton from '../navigation/CancelButton';
@@ -38,6 +38,7 @@ const propTypes = {
     recordTypes: PropTypes.object,
   }),
   data: PropTypes.instanceOf(Immutable.Map),
+  intl: PropTypes.object,
   isOpen: PropTypes.bool,
   isMultiSelect: PropTypes.bool,
   isUnrelating: PropTypes.bool,
@@ -48,11 +49,7 @@ const propTypes = {
   onUnrelateButtonClick: PropTypes.func,
 };
 
-const contextTypes = {
-  intl: PropTypes.object,
-};
-
-export default class ConfirmRecordUnrelateModal extends Component {
+class ConfirmRecordUnrelateModal extends Component {
   constructor(props) {
     super(props);
 
@@ -83,6 +80,7 @@ export default class ConfirmRecordUnrelateModal extends Component {
   render() {
     const {
       config,
+      intl,
       data,
       isMultiSelect,
       isOpen,
@@ -95,10 +93,6 @@ export default class ConfirmRecordUnrelateModal extends Component {
     if (!isOpen || (!isMultiSelect && !data) || (isMultiSelect && !recordCount)) {
       return null;
     }
-
-    const {
-      intl,
-    } = this.context;
 
     const recordTypeConfig = config.recordTypes[recordType];
     const recordNameMessage = isMultiSelect ? 'collectionName' : 'name';
@@ -133,4 +127,5 @@ export default class ConfirmRecordUnrelateModal extends Component {
 }
 
 ConfirmRecordUnrelateModal.propTypes = propTypes;
-ConfirmRecordUnrelateModal.contextTypes = contextTypes;
+
+export default injectIntl(ConfirmRecordUnrelateModal);

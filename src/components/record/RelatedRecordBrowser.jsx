@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Immutable from 'immutable';
 import get from 'lodash/get';
 import qs from 'qs';
+import { injectIntl } from 'react-intl';
 import RelatedRecordButtonBar from './RelatedRecordButtonBar';
 import RelatedRecordPanelContainer from '../../containers/record/RelatedRecordPanelContainer';
 import RelationEditorContainer from '../../containers/record/RelationEditorContainer';
@@ -18,6 +19,7 @@ const propTypes = {
   history: PropTypes.shape({
     replace: PropTypes.func,
   }),
+  intl: PropTypes.object,
   location: PropTypes.shape({
     state: PropTypes.object,
   }),
@@ -40,11 +42,7 @@ const defaultProps = {
   isSidebarOpen: true,
 };
 
-const contextTypes = {
-  intl: PropTypes.object,
-};
-
-export default class RelatedRecordBrowser extends Component {
+class RelatedRecordBrowser extends Component {
   constructor() {
     super();
 
@@ -334,15 +332,12 @@ export default class RelatedRecordBrowser extends Component {
   renderSearchToRelateModal() {
     const {
       config,
+      intl,
       recordType,
       csid,
       relatedRecordType,
       primaryRecordData,
     } = this.props;
-
-    const {
-      intl,
-    } = this.context;
 
     const {
       isSearchToRelateModalOpen,
@@ -421,4 +416,5 @@ export default class RelatedRecordBrowser extends Component {
 
 RelatedRecordBrowser.propTypes = propTypes;
 RelatedRecordBrowser.defaultProps = defaultProps;
-RelatedRecordBrowser.contextTypes = contextTypes;
+
+export default injectIntl(RelatedRecordBrowser);

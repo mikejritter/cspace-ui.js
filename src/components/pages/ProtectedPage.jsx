@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
+import { injectIntl } from 'react-intl';
 import { MODAL_LOGIN } from '../../constants/modalNames';
 import FooterContainer from '../../containers/sections/FooterContainer';
 import Header from '../sections/Header';
@@ -13,6 +14,7 @@ const propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
   }),
+  intl: PropTypes.object,
   openModalName: PropTypes.string,
   perms: PropTypes.instanceOf(Immutable.Map),
   screenName: PropTypes.string,
@@ -31,10 +33,9 @@ const contextTypes = {
     pluginInfo: PropTypes.object,
     serverUrl: PropTypes.string,
   }),
-  intl: PropTypes.object,
 };
 
-export default class ProtectedPage extends Component {
+class ProtectedPage extends Component {
   constructor() {
     super();
 
@@ -57,6 +58,7 @@ export default class ProtectedPage extends Component {
     const {
       decorated,
       history,
+      intl,
       openModalName,
       perms,
       screenName,
@@ -68,7 +70,6 @@ export default class ProtectedPage extends Component {
 
     const {
       config,
-      intl,
     } = this.context;
 
     let header;
@@ -105,3 +106,5 @@ export default class ProtectedPage extends Component {
 ProtectedPage.propTypes = propTypes;
 ProtectedPage.defaultProps = defaultProps;
 ProtectedPage.contextTypes = contextTypes;
+
+export default injectIntl(ProtectedPage);

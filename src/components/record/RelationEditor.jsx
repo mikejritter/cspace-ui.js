@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
-import { defineMessages, FormattedMessage } from 'react-intl';
+import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
 import get from 'lodash/get';
 import isEqual from 'lodash/isEqual';
 import RelationButtonBar from './RelationButtonBar';
@@ -39,6 +39,7 @@ const propTypes = {
   config: PropTypes.shape({
     recordTypes: PropTypes.object,
   }),
+  intl: PropTypes.object,
   perms: PropTypes.instanceOf(Immutable.Map),
   // TODO: These uses aren't properly detected. Try updating eslint-plugin-react.
   /* eslint-disable react/no-unused-prop-types */
@@ -70,11 +71,7 @@ const propTypes = {
   onUnrelated: PropTypes.func,
 };
 
-const contextTypes = {
-  intl: PropTypes.object,
-};
-
-export default class RelationEditor extends Component {
+class RelationEditor extends Component {
   constructor() {
     super();
 
@@ -261,16 +258,13 @@ export default class RelationEditor extends Component {
   renderHeader() {
     const {
       config,
+      intl,
       perms,
       subject,
       subjectWorkflowState,
       object,
       objectData,
     } = this.props;
-
-    const {
-      intl,
-    } = this.context;
 
     const recordTypeConfig = config.recordTypes[object.recordType];
     const recordTitle = recordTypeConfig.title(objectData, { config, intl });
@@ -407,4 +401,5 @@ export default class RelationEditor extends Component {
 }
 
 RelationEditor.propTypes = propTypes;
-RelationEditor.contextTypes = contextTypes;
+
+export default injectIntl(RelationEditor);
