@@ -1,5 +1,5 @@
 import React from 'react';
-import { defineMessages, FormattedMessage, FormattedHTMLMessage } from 'react-intl';
+import { defineMessages, FormattedMessage } from 'react-intl';
 import styles from '../../../styles/cspace-ui/About.css';
 
 const messages = defineMessages({
@@ -24,7 +24,7 @@ export default function About() {
   return (
     <div className={styles.common}>
       <h2><FormattedMessage {...messages.title} /></h2>
-      <FormattedHTMLMessage {...messages.contentHTML} tagName="div" />
+      <FormattedMessage {...messages.contentHTML} tagName="div" values={{ p: (chunks) => (<p>{chunks}</p>) }} />
     </div>
   );
 }

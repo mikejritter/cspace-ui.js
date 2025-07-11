@@ -6,7 +6,7 @@ import {
   defineMessages,
   FormattedMessage,
   FormattedDate,
-  FormattedRelative,
+  FormattedRelativeTime,
   FormattedTime,
 } from 'react-intl';
 
@@ -63,9 +63,10 @@ const formatTime = (timestamp) => (
     : null
 );
 
+// todo: Implementing FormattedRelative behavior
 const formatTimeRelative = (timestamp) => (
   timestamp
-    ? <FormattedRelative value={timestamp} />
+    ? <FormattedRelativeTime value={timestamp} />
     : null
 );
 
