@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
-import { defineMessages, intlShape, FormattedMessage } from 'react-intl';
+import { defineMessages, FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
 import get from 'lodash/get';
 import { Table } from 'cspace-layout';
@@ -127,7 +127,7 @@ const propTypes = {
   }).isRequired,
   formatCellData: PropTypes.func,
   formatColumnLabel: PropTypes.func,
-  intl: intlShape,
+  intl: PropTypes.object,
   isSearchPending: PropTypes.bool,
   linkItems: PropTypes.bool,
   // eslint-disable-next-line react/forbid-prop-types

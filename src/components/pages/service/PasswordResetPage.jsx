@@ -8,7 +8,6 @@ import {
   defineMessages,
   FormattedMessage,
   injectIntl,
-  intlShape,
 } from 'react-intl';
 
 import { isValidPassword } from '../../../helpers/passwordHelpers';
@@ -88,7 +87,7 @@ const messages = defineMessages({
 
 const propTypes = {
   csrf: PropTypes.object,
-  intl: intlShape.isRequired,
+  intl: PropTypes.object.isRequired,
   tenantId: PropTypes.string,
   tenantLoginUrl: PropTypes.string,
   token: PropTypes.string.isRequired,

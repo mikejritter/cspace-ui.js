@@ -5,7 +5,6 @@ import { Helmet } from 'react-helmet';
 import {
   defineMessages,
   injectIntl,
-  intlShape,
   FormattedMessage,
 } from 'react-intl';
 
@@ -13,7 +12,7 @@ const propTypes = {
   csrf: PropTypes.object,
   error: PropTypes.string,
   isLogoutSuccess: PropTypes.bool,
-  intl: intlShape.isRequired,
+  intl: PropTypes.object.isRequired,
   locale: PropTypes.string,
   sso: PropTypes.object,
   tenantId: PropTypes.string,

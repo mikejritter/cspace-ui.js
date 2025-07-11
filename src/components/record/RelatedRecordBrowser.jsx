@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { intlShape } from 'react-intl';
 import Immutable from 'immutable';
 import get from 'lodash/get';
 import qs from 'qs';
@@ -42,7 +41,7 @@ const defaultProps = {
 };
 
 const contextTypes = {
-  intl: intlShape,
+  intl: PropTypes.object,
 };
 
 export default class RelatedRecordBrowser extends Component {

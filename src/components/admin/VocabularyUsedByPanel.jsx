@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { defineMessages, FormattedMessage, intlShape } from 'react-intl';
+import { defineMessages, FormattedMessage } from 'react-intl';
 import Immutable from 'immutable';
 import { findVocabularyUses } from '../../helpers/configHelpers';
 import { formatExtensionFieldName } from '../../helpers/formatHelpers';
@@ -77,7 +77,7 @@ const propTypes = {
 };
 
 const contextTypes = {
-  intl: intlShape,
+  intl: PropTypes.object,
 };
 
 export default function VocabularyUsedByPanel(props, context) {

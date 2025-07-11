@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
-import { defineMessages, intlShape, FormattedMessage } from 'react-intl';
+import { defineMessages, FormattedMessage } from 'react-intl';
 import get from 'lodash/get';
 import { components as inputComponents, helpers as inputHelpers } from 'cspace-input';
 import { getRecordTypeConfigByServicePath } from '../../helpers/configHelpers';
@@ -82,7 +82,7 @@ const propTypes = {
 };
 
 const contextTypes = {
-  intl: intlShape,
+  intl: PropTypes.object,
   config: PropTypes.shape({
     recordTypes: PropTypes.object,
   }),

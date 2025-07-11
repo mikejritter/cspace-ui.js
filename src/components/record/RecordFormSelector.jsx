@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import { injectIntl, intlShape } from 'react-intl';
+import { injectIntl } from 'react-intl';
 import { baseComponents as components } from 'cspace-input';
 import styles from '../../../styles/cspace-ui/RecordFormSelector.css';
 
@@ -47,7 +47,7 @@ const propTypes = {
   config: PropTypes.shape({
     recordTypes: PropTypes.object,
   }),
-  intl: intlShape,
+  intl: PropTypes.object,
   formName: PropTypes.string,
   recordType: PropTypes.string,
   onCommit: PropTypes.func,

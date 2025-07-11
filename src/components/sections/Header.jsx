@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { injectIntl, intlShape } from 'react-intl';
+import { injectIntl } from 'react-intl';
 import Immutable from 'immutable';
 import QuickSearchFormContainer from '../../containers/search/QuickSearchFormContainer';
 import NavBar from '../navigation/NavBar';
@@ -16,7 +16,7 @@ const propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
   }),
-  intl: intlShape,
+  intl: PropTypes.object,
   // eslint-disable-next-line react/forbid-prop-types
   config: PropTypes.object,
   perms: PropTypes.instanceOf(Immutable.Map),

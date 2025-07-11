@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { injectIntl, intlShape } from 'react-intl';
+import { injectIntl } from 'react-intl';
 import Immutable from 'immutable';
 import { components as inputComponents } from 'cspace-input';
 import MiniViewPopupAutocompleteInputContainer from '../../containers/record/MiniViewPopupAutocompleteInputContainer';
@@ -11,7 +11,7 @@ const {
 
 const propTypes = {
   csid: PropTypes.string,
-  intl: intlShape,
+  intl: PropTypes.object,
   messages: PropTypes.shape({
     parent: PropTypes.object,
     children: PropTypes.object,

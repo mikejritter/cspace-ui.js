@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage, intlShape, defineMessages } from 'react-intl';
+import { FormattedMessage, defineMessages } from 'react-intl';
 import { Link } from 'react-router-dom';
 import Immutable from 'immutable';
 import RecordForm from './RecordForm';
@@ -11,7 +11,7 @@ const propTypes = {
   config: PropTypes.shape({
     recordTypes: PropTypes.object,
   }),
-  intl: intlShape,
+  intl: PropTypes.object,
   recordType: PropTypes.string,
   vocabulary: PropTypes.string,
   csid: PropTypes.string,

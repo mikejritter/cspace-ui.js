@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  defineMessages, injectIntl, intlShape, FormattedMessage,
+  defineMessages, injectIntl, FormattedMessage,
 } from 'react-intl';
 import { baseComponents as inputComponents } from 'cspace-input';
 
@@ -183,7 +183,7 @@ const operatorMessages = {
 
 const propTypes = {
   compact: PropTypes.bool,
-  intl: intlShape,
+  intl: PropTypes.object,
   name: PropTypes.string,
   operators: PropTypes.arrayOf(PropTypes.string),
   readOnly: PropTypes.bool,

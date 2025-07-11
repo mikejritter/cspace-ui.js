@@ -5,13 +5,12 @@ import { Helmet } from 'react-helmet';
 import {
   defineMessages,
   injectIntl,
-  intlShape,
   FormattedMessage,
 } from 'react-intl';
 
 const propTypes = {
   csrf: PropTypes.object,
-  intl: intlShape.isRequired,
+  intl: PropTypes.object.isRequired,
 };
 
 const defaultProps = {

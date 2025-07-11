@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
-import { defineMessages, intlShape, FormattedMessage } from 'react-intl';
+import { defineMessages, FormattedMessage } from 'react-intl';
 import get from 'lodash/get';
 import TitleBar from '../sections/TitleBar';
 import SearchResultTraverserContainer from '../../containers/search/SearchResultTraverserContainer';
@@ -32,7 +32,7 @@ const contextTypes = {
   config: PropTypes.shape({
     recordTypes: PropTypes.object,
   }),
-  intl: intlShape,
+  intl: PropTypes.object,
 };
 
 export default function RecordTitleBar(props, context) {

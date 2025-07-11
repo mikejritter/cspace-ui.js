@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage, intlShape } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import get from 'lodash/get';
 
 import {
@@ -60,7 +60,7 @@ const contextTypes = {
   config: PropTypes.shape({
     recordTypes: PropTypes.object,
   }),
-  intl: intlShape,
+  intl: PropTypes.object,
   recordType: PropTypes.string,
 };
 

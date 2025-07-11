@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { defineMessages, FormattedMessage, intlShape } from 'react-intl';
+import { defineMessages, FormattedMessage } from 'react-intl';
 import Immutable from 'immutable';
 import get from 'lodash/get';
 import { Modal } from 'cspace-layout';
@@ -72,7 +72,7 @@ const propTypes = {
 };
 
 const contextTypes = {
-  intl: intlShape,
+  intl: PropTypes.object,
 };
 
 export default class ConfirmRecordDeleteModal extends Component {

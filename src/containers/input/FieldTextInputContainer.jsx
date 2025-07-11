@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { components as inputComponents } from 'cspace-input';
-import { injectIntl, intlShape } from 'react-intl';
+import { injectIntl } from 'react-intl';
 import { formatRecordTypeSourceField } from '../../helpers/formatHelpers';
 import withConfig from '../../enhancers/withConfig';
 import withCsid from '../../enhancers/withCsid';
@@ -11,7 +11,7 @@ const { TextInput } = inputComponents;
 
 const propTypes = {
   csid: PropTypes.string,
-  intl: intlShape,
+  intl: PropTypes.object,
   config: PropTypes.object,
   value: PropTypes.string,
 };

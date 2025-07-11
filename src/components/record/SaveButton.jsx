@@ -5,7 +5,6 @@ import Immutable from 'immutable';
 import {
   defineMessages,
   injectIntl,
-  intlShape,
   FormattedMessage,
 } from 'react-intl';
 
@@ -32,7 +31,7 @@ const messages = defineMessages({
 
 const propTypes = {
   className: PropTypes.string,
-  intl: intlShape,
+  intl: PropTypes.object,
   isModified: PropTypes.bool,
   isSavePending: PropTypes.bool,
   label: PropTypes.node,

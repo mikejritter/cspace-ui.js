@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { defineMessages, intlShape, FormattedMessage } from 'react-intl';
+import { defineMessages, FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
 import Immutable from 'immutable';
 import TitleBar from '../sections/TitleBar';
@@ -256,7 +256,7 @@ const renderProcedures = (recordTypes = [], config, getTagsForRecord, tagConfig)
  *
  * @param {Array} recordTypes the authority records
  * @param {Object} config the cspace config
- * @param {intlShape} intl the intl object
+ * @param {} intl the intl object
  * @param {Function} getAuthorityVocabWorkflowState function to get workflow states
  */
 const renderAuthorities = (recordTypes = [], config, intl, getAuthorityVocabWorkflowState) => {
@@ -300,7 +300,7 @@ const contextTypes = {
 };
 
 const propTypes = {
-  intl: intlShape,
+  intl: PropTypes.object,
   perms: PropTypes.instanceOf(Immutable.Map),
   getAuthorityVocabWorkflowState: PropTypes.func,
   getTagsForRecord: PropTypes.func,

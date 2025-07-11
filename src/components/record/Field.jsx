@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { intlShape, FormattedMessage } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import Immutable from 'immutable';
 import get from 'lodash/get';
 import warning from 'warning';
@@ -91,7 +91,7 @@ const contextTypes = {
     recordTypes: PropTypes.object,
   }),
   formName: PropTypes.string,
-  intl: intlShape,
+  intl: PropTypes.object,
   recordData: PropTypes.instanceOf(Immutable.Map),
   recordType: PropTypes.string,
   recordTypeConfig: PropTypes.shape({

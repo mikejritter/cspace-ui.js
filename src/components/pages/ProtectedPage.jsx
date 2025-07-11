@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { intlShape } from 'react-intl';
 import Immutable from 'immutable';
 import { MODAL_LOGIN } from '../../constants/modalNames';
 import FooterContainer from '../../containers/sections/FooterContainer';
@@ -32,7 +31,7 @@ const contextTypes = {
     pluginInfo: PropTypes.object,
     serverUrl: PropTypes.string,
   }),
-  intl: intlShape,
+  intl: PropTypes.object,
 };
 
 export default class ProtectedPage extends Component {

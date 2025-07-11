@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { defineMessages, injectIntl, intlShape } from 'react-intl';
+import { defineMessages, injectIntl } from 'react-intl';
 import { components as inputComponents } from 'cspace-input';
 import withConfig from '../../enhancers/withConfig';
 
@@ -24,7 +24,7 @@ const propTypes = {
   config: PropTypes.shape({
     defaultDropdownFilter: PropTypes.string,
   }),
-  intl: intlShape,
+  intl: PropTypes.object,
 };
 
 /**

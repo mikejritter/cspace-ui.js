@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { defineMessages, injectIntl, intlShape } from 'react-intl';
+import { defineMessages, injectIntl } from 'react-intl';
 import deprecatedIcon from '../../../images/deprecated.svg';
 import lockedIcon from '../../../images/locked.svg';
 import replicatedIcon from '../../../images/replicated.svg';
@@ -28,7 +28,7 @@ const images = {
 };
 
 const propTypes = {
-  intl: intlShape,
+  intl: PropTypes.object,
   value: PropTypes.string,
 };
 

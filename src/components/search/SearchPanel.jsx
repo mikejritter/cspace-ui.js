@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { defineMessages, intlShape, FormattedMessage } from 'react-intl';
+import { defineMessages, FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
 import Immutable from 'immutable';
 import get from 'lodash/get';
@@ -71,7 +71,7 @@ const defaultProps = {
 };
 
 const contextTypes = {
-  intl: intlShape,
+  intl: PropTypes.object,
 };
 
 export default class SearchPanel extends Component {

@@ -8,7 +8,6 @@ import {
   defineMessages,
   FormattedMessage,
   injectIntl,
-  intlShape,
 } from 'react-intl';
 
 import { isValidEmail } from '../../../helpers/validationHelpers';
@@ -69,7 +68,7 @@ const messages = defineMessages({
 const propTypes = {
   csrf: PropTypes.object,
   tenantId: PropTypes.string,
-  intl: intlShape.isRequired,
+  intl: PropTypes.object.isRequired,
 };
 
 const defaultProps = {

@@ -1,11 +1,12 @@
 import React from 'react';
-import { defineMessages, injectIntl, intlShape } from 'react-intl';
+import PropTypes from 'prop-types';
+import { defineMessages, injectIntl } from 'react-intl';
 import { components as inputComponents } from 'cspace-input';
 
 const { DateInput } = inputComponents;
 
 const propTypes = {
-  intl: intlShape,
+  intl: PropTypes.object,
 };
 
 const messages = defineMessages({

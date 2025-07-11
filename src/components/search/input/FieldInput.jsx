@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { injectIntl, intlShape } from 'react-intl';
+import { injectIntl } from 'react-intl';
 import get from 'lodash/get';
 import { DATA_TYPE_STRUCTURED_DATE } from '../../../constants/dataTypes';
 import { formatExtensionFieldName } from '../../../helpers/formatHelpers';
@@ -19,7 +19,7 @@ const propTypes = {
     locale: PropTypes.string,
   }).isRequired,
   embedded: PropTypes.bool,
-  intl: intlShape.isRequired,
+  intl: PropTypes.object.isRequired,
   name: PropTypes.string,
   placeholder: PropTypes.string,
   readOnly: PropTypes.bool,

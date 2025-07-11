@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
-  defineMessages, injectIntl, intlShape, FormattedMessage,
+  defineMessages, injectIntl, FormattedMessage,
 } from 'react-intl';
 import Immutable from 'immutable';
 import get from 'lodash/get';
@@ -52,7 +52,7 @@ const propTypes = {
     listTypes: PropTypes.object,
     recordTypes: PropTypes.object,
   }),
-  intl: intlShape,
+  intl: PropTypes.object,
   isOpen: PropTypes.bool,
   keywordValue: PropTypes.string,
   defaultRecordTypeValue: PropTypes.string,

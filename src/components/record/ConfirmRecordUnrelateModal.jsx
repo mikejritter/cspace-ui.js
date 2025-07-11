@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { defineMessages, FormattedMessage, intlShape } from 'react-intl';
+import { defineMessages, FormattedMessage } from 'react-intl';
 import Immutable from 'immutable';
 import { Modal } from 'cspace-layout';
 import CancelButton from '../navigation/CancelButton';
@@ -49,7 +49,7 @@ const propTypes = {
 };
 
 const contextTypes = {
-  intl: intlShape,
+  intl: PropTypes.object,
 };
 
 export default class ConfirmRecordUnrelateModal extends Component {
