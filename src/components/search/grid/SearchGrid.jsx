@@ -24,6 +24,10 @@ const cardPropTypes = {
   }),
 };
 
+const gridPropTypes = {
+  searchDescriptor: PropTypes.object,
+};
+
 export function SearchResultCard({ result, cardConfig }) {
   const titleFields = cardConfig.title.fields;
   const subtitleFields = cardConfig.subtitle.fields;
@@ -68,7 +72,7 @@ function SearchResultGrid({ searchDescriptor }) {
   // in order to retrieve the data
   // todo: read into the search results based on the list type
   // todo: why do we need to do !results AND !items?
-  const items = readListItems(config, 'common', results);
+  const items = readListItems(config, 'search', results);
   if (!items) {
     return null;
   }
@@ -85,5 +89,7 @@ function SearchResultGrid({ searchDescriptor }) {
     </div>
   );
 }
+
+SearchResultGrid.propTypes = gridPropTypes;
 
 export default injectIntl(SearchResultCard);
