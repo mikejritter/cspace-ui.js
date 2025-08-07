@@ -8,6 +8,38 @@ import { applyMiddleware, compose, createStore as reduxCreateStore } from 'redux
 import thunk from 'redux-thunk';
 import ConfigProvider from '../../src/components/config/ConfigProvider';
 import reducers from '../../src/reducers';
+import createConfigContext from '../../src/helpers/createConfigContext';
+import { evaluatePlugin, finalizeRecordTypes, mergeConfig } from '../../src/helpers/configHelpers';
+import plugins from '../../src/plugins';
+
+/**
+ * @returns the CSpace configuration object
+ */
+export function createCSpaceConfig() {
+  const configContext = createConfigContext();
+
+  const defaultConfig = mergeConfig({
+    structDateOptionListNames: ['dateQualifiers'],
+    structDateVocabNames: ['dateera', 'datecertainty', 'datequalifier'],
+    tags: {
+      defaultGroup: {
+        sortOrder: 0,
+      },
+      nagpra: {
+        sortOrder: 1,
+      },
+      legacy: {
+        sortOrder: 3,
+      },
+    },
+    tenantId: '1',
+  }, {
+    plugins: plugins.map((plugin) => plugin()),
+  }, configContext);
+
+  const resolvedUiConfig = evaluatePlugin({}, createConfigContext());
+  return finalizeRecordTypes(mergeConfig(defaultConfig, resolvedUiConfig, configContext));
+}
 
 /**
  * @returns a redux store

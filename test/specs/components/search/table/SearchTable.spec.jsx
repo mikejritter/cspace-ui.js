@@ -1,70 +1,15 @@
 import React from 'react';
 import Immutable from 'immutable';
 import { setupWorker, rest } from 'msw';
-import { renderWithProviders as render, createStore } from '../../../../helpers/providerHelpers';
+import { renderWithProviders as render, createStore, createCSpaceConfig } from '../../../../helpers/providerHelpers';
 import createTestContainer from '../../../../helpers/createTestContainer';
 import SearchResultTable from '../../../../../src/components/search/table/SearchTable';
-import { evaluatePlugin, finalizeRecordTypes, mergeConfig } from '../../../../../src/helpers/configHelpers';
-import createConfigContext from '../../../../../src/helpers/createConfigContext';
-import { OP_OR } from '../../../../../src/constants/searchOperators';
-import plugins from '../../../../../src/plugins';
 import { SEARCH_RESULT_PAGE_SEARCH_NAME } from '../../../../../src/constants/searchNames';
 import { search } from '../../../../../src/actions/search';
 
 const { expect } = chai;
 
 chai.should();
-
-const configContext = createConfigContext();
-
-const defaultConfig = mergeConfig({
-  allowDeleteHierarchyLeaves: false,
-  autocompleteFindDelay: 500,
-  autocompleteMinLength: 3,
-  basename: '',
-  className: '',
-  container: '#cspace',
-  defaultAdvancedSearchBooleanOp: OP_OR,
-  defaultDropdownFilter: 'substring',
-  defaultSearchPageSize: 20,
-  defaultSearchPanelSize: 5,
-  defaultUserPrefs: {
-    panels: {
-      collectionobject: {
-        mediaSnapshotPanel: {
-          collapsed: false,
-        },
-      },
-    },
-  },
-  disableAltTerms: false,
-  index: '/search',
-  locale: 'en-US',
-  // logo: logoUrl,
-  mediaSnapshotSort: 'title',
-  messages: undefined,
-  prettyUrls: false,
-  relationMemberPerm: 'U',
-  serverUrl: '',
-  showTermListStateIcon: false,
-  structDateOptionListNames: ['dateQualifiers'],
-  structDateVocabNames: ['dateera', 'datecertainty', 'datequalifier'],
-  tags: {
-    defaultGroup: {
-      sortOrder: 0,
-    },
-    nagpra: {
-      sortOrder: 1,
-    },
-    legacy: {
-      sortOrder: 3,
-    },
-  },
-  tenantId: '1',
-  termDeprecationEnabled: false,
-}, {
-  plugins: plugins.map((plugin) => plugin()),
-}, configContext);
 
 // pulled from the CollectionSpace Services API
 const response = {
@@ -90,14 +35,8 @@ const response = {
 };
 
 describe.only('SearchResultTable', () => {
+  const config = createCSpaceConfig();
   const worker = setupWorker();
-  // how to create a good config for testing?
-  // ideally this will use the default cspace configuration
-  // however it's kind of slow so trying to figure out how to just kind of... get everything at once
-  // or just use whatever we need (e.g. collectionobject)
-
-  const resolvedUiConfig = evaluatePlugin({}, createConfigContext());
-  const config = finalizeRecordTypes(mergeConfig(defaultConfig, resolvedUiConfig, configContext));
 
   before(async () => {
     await worker.start({ quiet: true });
@@ -137,7 +76,7 @@ describe.only('SearchResultTable', () => {
     expect(searchTableDiv).to.equal(null);
   });
 
-  it.skip('should render a table with a search result', async function test() {
+  it('should render a table with a search result', async function test() {
     worker.use(
       rest.get('/cspace-services/collectionobjects', (req, res, ctx) => res(ctx.json(response))),
     );
