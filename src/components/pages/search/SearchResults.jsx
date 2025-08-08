@@ -34,6 +34,50 @@ const selectBarPropTypes = {
   toggleBar: PropTypes.object,
 };
 
+function renderModals() {
+  let config;
+  let recordType;
+  let vocabulary;
+  let searchDescriptor;
+  let selectedItems;
+
+  let searchToRelateModal;
+  let selectionValidationError;
+  let isSearchToRelateModalOpen;
+  let isExportModalOpen;
+
+  if (isResultRelatable(searchDescriptor)) {
+    searchToRelateModal = (
+      <SearchToRelateModalContainer
+        allowedServiceTypes={['object', 'procedure']}
+        subjects={this.getSearchToRelateSubjects}
+        config={config}
+        isOpen={isSearchToRelateModalOpen}
+        defaultRecordTypeValue="collectionobject"
+        error={selectionValidationError}
+        onCancelButtonClick={handleModalCancelButtonClick}
+        onCloseButtonClick={handleModalCloseButtonClick}
+        onRelationsCreated={handleRelationsCreated}
+      />
+    );
+  }
+
+  if (isResultExportable(searchDescriptor)) {
+    exportModal = (
+      <ExportModalContainer
+        config={config}
+        isOpen={isExportModalOpen}
+        recordType={recordType}
+        vocabulary={vocabulary}
+        selectedItems={selectedItems}
+        onCancelButtonClick={handleModalCancelButtonClick}
+        onCloseButtonClick={handleModalCloseButtonClick}
+        onExportOpened={handleExportOpened}
+      />
+    );
+  }
+}
+
 export function SimpleSelectBar({ toggleBar }) {
   // button bar (relate/export)
   const exportButton = (
