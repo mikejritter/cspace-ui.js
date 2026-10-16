@@ -31,7 +31,7 @@
 
 .results > table > thead > tr > th.sortable {
   cursor: pointer;
-  text-decoration: underline;
+  font-weight: bold;
 }
 
 .results > table > thead > tr > th:focus {
